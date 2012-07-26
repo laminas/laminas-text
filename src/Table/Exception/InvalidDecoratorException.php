@@ -8,14 +8,13 @@
  * @package   Zend_Text
  */
 
-namespace Zend\Text\Exception;
+namespace Zend\Text\Table\Exception;
+
+use DomainException;
 
 /**
- * @category  Zend
- * @package   Zend_Text
+ * @category Zend
+ * @package  Zend_Text
  */
-class UnexpectedValueException
-    extends \UnexpectedValueException
-    implements ExceptionInterface
-{
-}
+class UnexpectedValueException extends DomainException implements ExceptionInterface
+{}
