@@ -9,7 +9,7 @@
     "homepage": "https://github.com/zendframework/zend-text",
     "autoload": {
         "psr-4": {
-            "Zend\\Text": "src/"
+            "Zend\\Text\\": "src/"
         }
     },
     "require": {
