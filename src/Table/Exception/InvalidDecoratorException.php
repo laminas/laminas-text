@@ -8,13 +8,13 @@
  * @package   Zend_Text
  */
 
-namespace Zend\Text\Figlet\Exception;
+namespace Zend\Text\Table\Exception;
 
-use Zend\Text\Exception\ExceptionInterface as Exception;
+use DomainException;
 
 /**
- * @category   Zend
- * @package    Zend_Text
+ * @category Zend
+ * @package  Zend_Text
  */
-interface ExceptionInterface extends Exception
+class InvalidDecoratorException extends DomainException implements ExceptionInterface
 {}
