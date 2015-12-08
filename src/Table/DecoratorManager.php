@@ -9,7 +9,9 @@
 
 namespace Zend\Text\Table;
 
+use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\AbstractPluginManager;
+use Zend\Text\Table\Decorator;
 
 /**
  * Plugin manager implementation for text table decorators
@@ -25,10 +27,17 @@ class DecoratorManager extends AbstractPluginManager
      *
      * @var array
      */
-    protected $invokableClasses = [
-        'ascii'   => 'Zend\Text\Table\Decorator\Ascii',
-        'blank'   => 'Zend\Text\Table\Decorator\Blank',
-        'unicode' => 'Zend\Text\Table\Decorator\Unicode',
+    protected $aliases = [
+        'ascii'   => Decorator\Ascii::class,
+        'blank'   => Decorator\Blank::class,
+        'unicode' => Decorator\Unicode::class,
+    ];
+
+
+    protected $factories = [
+        Decorator\Ascii::class      => InvokableFactory::class,
+        Decorator\Blank::class      => InvokableFactory::class,
+        Decorator\Unicode::class    => InvokableFactory::class,
     ];
 
     /**
