@@ -11,7 +11,6 @@ namespace Zend\Text\Table;
 
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\AbstractPluginManager;
-use Zend\Text\Table\Decorator;
 
 /**
  * Plugin manager implementation for text table decorators
