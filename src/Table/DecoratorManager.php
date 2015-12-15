@@ -39,26 +39,5 @@ class DecoratorManager extends AbstractPluginManager
         Decorator\Unicode::class    => InvokableFactory::class,
     ];
 
-    /**
-     * Validate the plugin
-     *
-     * Checks that the decorator loaded is an instance of Decorator\DecoratorInterface.
-     *
-     * @param  mixed $plugin
-     * @return void
-     * @throws Exception\InvalidDecoratorException if invalid
-     */
-    public function validatePlugin($plugin)
-    {
-        if ($plugin instanceof Decorator\DecoratorInterface) {
-            // we're okay
-            return;
-        }
-
-        throw new Exception\InvalidDecoratorException(sprintf(
-            'Plugin of type %s is invalid; must implement %s\Decorator\DecoratorInterface',
-            (is_object($plugin) ? get_class($plugin) : gettype($plugin)),
-            __NAMESPACE__
-        ));
-    }
+    protected $instanceOf = Decorator\DecoratorInterface::class;
 }
