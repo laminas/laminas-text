@@ -9,6 +9,7 @@
 
 namespace Zend\Text\Table;
 
+use Zend\ServiceManager\Factory\InvokableFactory;
 use Zend\ServiceManager\AbstractPluginManager;
 
 /**
@@ -25,32 +26,18 @@ class DecoratorManager extends AbstractPluginManager
      *
      * @var array
      */
-    protected $invokableClasses = [
-        'ascii'   => 'Zend\Text\Table\Decorator\Ascii',
-        'blank'   => 'Zend\Text\Table\Decorator\Blank',
-        'unicode' => 'Zend\Text\Table\Decorator\Unicode',
+    protected $aliases = [
+        'ascii'   => Decorator\Ascii::class,
+        'blank'   => Decorator\Blank::class,
+        'unicode' => Decorator\Unicode::class,
     ];
 
-    /**
-     * Validate the plugin
-     *
-     * Checks that the decorator loaded is an instance of Decorator\DecoratorInterface.
-     *
-     * @param  mixed $plugin
-     * @return void
-     * @throws Exception\InvalidDecoratorException if invalid
-     */
-    public function validatePlugin($plugin)
-    {
-        if ($plugin instanceof Decorator\DecoratorInterface) {
-            // we're okay
-            return;
-        }
 
-        throw new Exception\InvalidDecoratorException(sprintf(
-            'Plugin of type %s is invalid; must implement %s\Decorator\DecoratorInterface',
-            (is_object($plugin) ? get_class($plugin) : gettype($plugin)),
-            __NAMESPACE__
-        ));
-    }
+    protected $factories = [
+        Decorator\Ascii::class      => InvokableFactory::class,
+        Decorator\Blank::class      => InvokableFactory::class,
+        Decorator\Unicode::class    => InvokableFactory::class,
+    ];
+
+    protected $instanceOf = Decorator\DecoratorInterface::class;
 }

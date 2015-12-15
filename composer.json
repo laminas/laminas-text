@@ -14,15 +14,15 @@
     },
     "require": {
         "php": ">=5.5",
-        "zendframework/zend-stdlib": "~2.5",
-        "zendframework/zend-servicemanager": "~2.5"
+        "zendframework/zend-stdlib": "dev-develop as 2.8.0",
+        "zendframework/zend-servicemanager": "dev-develop as 2.7.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-master": "2.5-dev",
-            "dev-develop": "2.6-dev"
+            "dev-develop": "3.0-dev"
         }
     },
     "autoload-dev": {
