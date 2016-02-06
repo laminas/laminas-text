@@ -11,9 +11,10 @@ namespace ZendTest\Text\Table;
 
 use PHPUnit_Framework_TestCase as TestCase;
 use Zend\ServiceManager\ServiceManager;
+use Zend\ServiceManager\Test\CommonPluginManagerTrait;
+use Zend\Text\Table\Decorator\DecoratorInterface;
 use Zend\Text\Table\DecoratorManager;
 use Zend\Text\Table\Exception\InvalidDecoratorException;
-use ZendTest\ServiceManager\CommonPluginManagerTrait;
 
 class DecoratorManagerTest extends TestCase
 {
@@ -27,5 +28,10 @@ class DecoratorManagerTest extends TestCase
     protected function getV2InvalidPluginException()
     {
         return InvalidDecoratorException::class;
+    }
+
+    protected function getInstanceOf()
+    {
+        return DecoratorInterface::class;
     }
 }

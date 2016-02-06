@@ -27,8 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ZendTest\\Text\\": "test/",
-            "ZendTest\\ServiceManager\\": "vendor/zendframework/zend-servicemanager/test"
+            "ZendTest\\Text\\": "test/"
         }
     },
     "require-dev": {
