@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 3.0.0 - TBD
+## 2.6.0 - 2016-02-08
 
 ### Added
 
@@ -18,5 +18,6 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#2](https://github.com/zendframework/zend-text/pull/2) updates the component
-  to use zend-servicemanager v3.
+- [#2](https://github.com/zendframework/zend-text/pull/2) and
+  [#9](https://github.com/zendframework/zend-text/pull/9) update the component
+  to be forwards-compatible with zend-servicemanager v3.
