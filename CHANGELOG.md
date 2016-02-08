@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Added
 
-- Nothing.
+- [#10](https://github.com/zendframework/zend-text/pull/10) adds and publishes
+  documentation; view it at https://zendframework.github.io/zend-text/
 
 ### Deprecated
 
