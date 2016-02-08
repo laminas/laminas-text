@@ -17,4 +17,4 @@
 
 
 - File issues at https://github.com/zendframework/zend-text/issues
-- Documentation is at http://framework.zend.com/manual/current/en/index.html#zend-text
+- Documentation is at https://zendframework.github.io/zend-text/
