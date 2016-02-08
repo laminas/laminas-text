@@ -10,6 +10,7 @@
 namespace ZendTest\Text;
 
 use Zend\Text\Table;
+use Zend\ServiceManager\ServiceManager;
 use Zend\Text\Table\Decorator;
 
 /**
@@ -422,7 +423,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
 
     public function testDecoratorBlank()
     {
-        $decoratorManager = new Table\DecoratorManager;
+        $decoratorManager = new Table\DecoratorManager(new ServiceManager());
         $decorator = $decoratorManager->get('blank');
 
         $chars = $decorator->getBottomLeft()

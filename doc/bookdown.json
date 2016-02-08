@@ -1,8 +1,0 @@
-{
-    "title": "Zend\\Text",
-    "target": "html/",
-    "content": [
-        "book/zend.text.figlet.md",
-        "book/zend.text.table.md"
-    ]
-}
