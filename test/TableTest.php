@@ -330,7 +330,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column('foobar', null, 2));
         $table->appendRow($row);
 
-        $this->assertEquals($table->render(),   "┌──────────┬──────────┐\n"
+        $this->assertEquals($table->render(), "┌──────────┬──────────┐\n"
                                               . "│foobar    │foobar    │\n"
                                               . "├──────────┴──────────┤\n"
                                               . "│foobar               │\n"
@@ -361,7 +361,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column('foobar'));
         $table->appendRow($row);
 
-        $this->assertEquals($table->render(),   "┌──────────┬─────────────────────┐\n"
+        $this->assertEquals($table->render(), "┌──────────┬─────────────────────┐\n"
                                               . "│foobar    │foobar               │\n"
                                               . "├──────────┼─────────────────────┤\n"
                                               . "│foobar    │foobar               │\n"

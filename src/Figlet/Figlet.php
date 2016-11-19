@@ -273,7 +273,7 @@ class Figlet
         }
 
         // If no font was defined, load default font
-        if (!$this->fontLoaded) {
+        if (! $this->fontLoaded) {
             $this->_loadFont(__DIR__ . '/zend-framework.flf');
         }
     }
@@ -405,7 +405,7 @@ class Figlet
      */
     public function render($text, $encoding = 'UTF-8')
     {
-        if (!is_string($text)) {
+        if (! is_string($text)) {
             throw new Exception\InvalidArgumentException('$text must be a string');
         }
 
@@ -414,7 +414,7 @@ class Figlet
 
         // Convert $text to UTF-8 and check encoding
         $text = $strWrapper->convert($text);
-        if (!StringUtils::isValidUtf8($text)) {
+        if (! StringUtils::isValidUtf8($text)) {
             throw new Exception\UnexpectedValueException('$text is not encoded with ' . $encoding);
         }
 
@@ -436,9 +436,9 @@ class Figlet
             // Handle paragraphs
             $char = $strWrapper->substr($text, $charNum, 1);
 
-            if ($char === "\n" && $this->handleParagraphs && !$lastCharWasEol) {
+            if ($char === "\n" && $this->handleParagraphs && ! $lastCharWasEol) {
                 $nextChar = $strWrapper->substr($text, ($charNum + 1), 1);
-                if (!$nextChar) {
+                if (! $nextChar) {
                     $nextChar = null;
                 }
 
@@ -448,7 +448,7 @@ class Figlet
             $lastCharWasEol = (ctype_space($char) && $char !== "\t" && $char !== ' ');
 
             if (ctype_space($char)) {
-                $char = ($char === "\t" || $char === ' ') ? ' ': "\n";
+                $char = ($char === "\t" || $char === ' ') ? ' ' : "\n";
             }
 
             // Skip unprintable characters
@@ -479,9 +479,9 @@ class Figlet
                     $wordBreakMode = false;
                 } elseif ($this->_addChar($char)) {
                     if ($char !== ' ') {
-                        $wordBreakMode = ($wordBreakMode >= 2) ? 3: 1;
+                        $wordBreakMode = ($wordBreakMode >= 2) ? 3 : 1;
                     } else {
-                        $wordBreakMode = ($wordBreakMode > 0) ? 2: 0;
+                        $wordBreakMode = ($wordBreakMode > 0) ? 2 : 0;
                     }
                 } elseif ($this->outlineLength === 0) {
                     for ($i = 0; $i < $this->charHeight; $i++) {
@@ -578,7 +578,7 @@ class Figlet
     {
         $gotSpace = false;
         for ($i = ($this->inCharLineLength - 1); $i >= 0; $i--) {
-            if (!$gotSpace && $this->inCharLine[$i] === ' ') {
+            if (! $gotSpace && $this->inCharLine[$i] === ' ') {
                 $gotSpace  = true;
                 $lastSpace = $i;
             }
@@ -722,7 +722,7 @@ class Figlet
             if ($this->rightToLeft === 1) {
                 $charbd = strlen($this->currentChar[$row]);
                 while (true) {
-                    if (!isset($this->currentChar[$row][$charbd])) {
+                    if (! isset($this->currentChar[$row][$charbd])) {
                         $leftChar = null;
                     } else {
                         $leftChar = $this->currentChar[$row][$charbd];
@@ -737,7 +737,7 @@ class Figlet
 
                 $linebd = 0;
                 while (true) {
-                    if (!isset($this->outputLine[$row][$linebd])) {
+                    if (! isset($this->outputLine[$row][$linebd])) {
                         $rightChar = null;
                     } else {
                         $rightChar = $this->outputLine[$row][$linebd];
@@ -754,7 +754,7 @@ class Figlet
             } else {
                 $linebd = strlen($this->outputLine[$row]);
                 while (true) {
-                    if (!isset($this->outputLine[$row][$linebd])) {
+                    if (! isset($this->outputLine[$row][$linebd])) {
                         $leftChar = null;
                     } else {
                         $leftChar = $this->outputLine[$row][$linebd];
@@ -769,7 +769,7 @@ class Figlet
 
                 $charbd = 0;
                 while (true) {
-                    if (!isset($this->currentChar[$row][$charbd])) {
+                    if (! isset($this->currentChar[$row][$charbd])) {
                         $rightChar = null;
                     } else {
                         $rightChar = $this->currentChar[$row][$charbd];
@@ -787,7 +787,7 @@ class Figlet
 
             if (empty($leftChar) || $leftChar === ' ') {
                 $amount++;
-            } elseif (!empty($rightChar)) {
+            } elseif (! empty($rightChar)) {
                 if ($this->_smushem($leftChar, $rightChar) !== null) {
                     $amount++;
                 }
@@ -947,13 +947,13 @@ class Figlet
     protected function _loadFont($fontFile)
     {
         // Check if the font file exists
-        if (!file_exists($fontFile)) {
+        if (! file_exists($fontFile)) {
             throw new Exception\RuntimeException($fontFile . ': Font file not found');
         }
 
         // Check if gzip support is required
         if (substr($fontFile, -3) === '.gz') {
-            if (!function_exists('gzcompress')) {
+            if (! function_exists('gzcompress')) {
                 throw new Exception\RuntimeException('GZIP library is required for gzip compressed font files');
             }
 
@@ -970,7 +970,7 @@ class Figlet
         }
 
         // If the file is not compressed, lock the stream
-        if (!$compressed) {
+        if (! $compressed) {
             flock($fp, LOCK_SH);
         }
 
@@ -1056,7 +1056,7 @@ class Figlet
         }
 
         // At the end fetch all extended characters
-        while (!feof($fp)) {
+        while (! feof($fp)) {
             // Get the Unicode
             $uniCode = fgets($fp, 2048);
 
@@ -1140,7 +1140,7 @@ class Figlet
     protected function _skipToEol($fp)
     {
         $dummy = fgetc($fp);
-        while ($dummy !== false && !feof($fp)) {
+        while ($dummy !== false && ! feof($fp)) {
             if ($dummy === "\n") {
                 return;
             }
@@ -1148,7 +1148,7 @@ class Figlet
             if ($dummy === "\r") {
                 $dummy = fgetc($fp);
 
-                if (!feof($fp) && $dummy !== "\n") {
+                if (! feof($fp) && $dummy !== "\n") {
                     fseek($fp, -1, SEEK_SET);
                 }
 
