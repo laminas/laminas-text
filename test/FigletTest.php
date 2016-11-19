@@ -225,8 +225,10 @@ class FigletTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('', $figlet->render(''));
     }
 
+    // @codingStandardsIgnoreStart
     protected function _equalAgainstFile($output, $file)
     {
+        // @codingStandardsIgnoreEnd
         $compareString = file_get_contents(__DIR__ . '/Figlet/' . $file);
 
         $this->assertEquals($compareString, $output);

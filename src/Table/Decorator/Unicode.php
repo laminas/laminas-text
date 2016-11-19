@@ -132,8 +132,10 @@ class Unicode implements Decorator
      * @param  int $code
      * @return string|false
      */
+    // @codingStandardsIgnoreStart
     protected function _uniChar($code)
     {
+        // @codingStandardsIgnoreEnd
         if ($code <= 0x7F) {
             $char = chr($code);
         } elseif ($code <= 0x7FF) {

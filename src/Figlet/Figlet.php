@@ -532,8 +532,10 @@ class Figlet
      * @param  string $string The string to add to the output
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _putString($string)
     {
+        // @codingStandardsIgnoreEnd
         $length = strlen($string);
 
         if ($this->outputWidth > 1) {
@@ -558,8 +560,10 @@ class Figlet
      *
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _appendLine()
     {
+        // @codingStandardsIgnoreEnd
         for ($i = 0; $i < $this->charHeight; $i++) {
             $this->_putString($this->outputLine[$i]);
         }
@@ -574,8 +578,10 @@ class Figlet
      *
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _splitLine()
     {
+        // @codingStandardsIgnoreEnd
         $gotSpace = false;
         for ($i = ($this->inCharLineLength - 1); $i >= 0; $i--) {
             if (! $gotSpace && $this->inCharLine[$i] === ' ') {
@@ -619,8 +625,10 @@ class Figlet
      *
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _clearLine()
     {
+        // @codingStandardsIgnoreEnd
         for ($i = 0; $i < $this->charHeight; $i++) {
             $this->outputLine[$i] = '';
         }
@@ -636,8 +644,10 @@ class Figlet
      * @param  string $char Character which to add to the output
      * @return bool
      */
+    // @codingStandardsIgnoreStart
     protected function _addChar($char)
     {
+        // @codingStandardsIgnoreEnd
         $this->_getLetter($char);
 
         if ($this->currentChar === null) {
@@ -693,8 +703,10 @@ class Figlet
      * @param  string $char The character from which to get the letter of
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _getLetter($char)
     {
+        // @codingStandardsIgnoreEnd
         if (array_key_exists($this->_uniOrd($char), $this->charList)) {
             $this->currentChar       = $this->charList[$this->_uniOrd($char)];
             $this->previousCharWidth = $this->currentCharWidth;
@@ -710,8 +722,10 @@ class Figlet
      *
      * @return int
      */
+    // @codingStandardsIgnoreStart
     protected function _smushAmount()
     {
+        // @codingStandardsIgnoreEnd
         if (($this->smushMode & (self::SM_SMUSH | self::SM_KERN)) === 0) {
             return 0;
         }
@@ -818,8 +832,10 @@ class Figlet
      * @param  string $rightChar Right character to smush
      * @return string
      */
+    // @codingStandardsIgnoreStart
     protected function _smushem($leftChar, $rightChar)
     {
+        // @codingStandardsIgnoreEnd
         if ($leftChar === ' ') {
             return $rightChar;
         }
@@ -944,8 +960,10 @@ class Figlet
      * @throws Exception\UnexpectedValueException When font file is not a FIGlet 2 font file
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _loadFont($fontFile)
     {
+        // @codingStandardsIgnoreEnd
         // Check if the font file exists
         if (! file_exists($fontFile)) {
             throw new Exception\RuntimeException($fontFile . ': Font file not found');
@@ -1103,8 +1121,10 @@ class Figlet
      *
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _setUsedSmush()
     {
+        // @codingStandardsIgnoreEnd
         if ($this->smushOverride === self::SMO_NO) {
             $this->smushMode = $this->fontSmush;
         } elseif ($this->smushOverride === self::SMO_YES) {
@@ -1120,8 +1140,10 @@ class Figlet
      * @param  resource $fp File pointer to the font file
      * @return string
      */
+    // @codingStandardsIgnoreStart
     protected function _readMagic($fp)
     {
+        // @codingStandardsIgnoreEnd
         $magic = '';
 
         for ($i = 0; $i < 4; $i++) {
@@ -1137,8 +1159,10 @@ class Figlet
      * @param  resource $fp File pointer to the font file
      * @return void
      */
+    // @codingStandardsIgnoreStart
     protected function _skipToEol($fp)
     {
+        // @codingStandardsIgnoreEnd
         $dummy = fgetc($fp);
         while ($dummy !== false && ! feof($fp)) {
             if ($dummy === "\n") {
@@ -1165,8 +1189,10 @@ class Figlet
      * @param  resource $fp File pointer to the font file
      * @return array
      */
+    // @codingStandardsIgnoreStart
     protected function _loadChar($fp)
     {
+        // @codingStandardsIgnoreEnd
         $char = [];
 
         for ($i = 0; $i < $this->charHeight; $i++) {
@@ -1192,8 +1218,10 @@ class Figlet
      * @param  string $c The char to get the value from
      * @return int
      */
+    // @codingStandardsIgnoreStart
     protected function _uniOrd($c)
     {
+        // @codingStandardsIgnoreEnd
         $h = ord($c[0]);
 
         if ($h <= 0x7F) {
