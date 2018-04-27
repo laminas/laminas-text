@@ -89,8 +89,10 @@ class FigletTest extends \PHPUnit_Framework_TestCase
 
     public function testIncorrectEncoding()
     {
-        $this->setExpectedException('Zend\Text\Figlet\Exception\UnexpectedValueException',
-                                    'text is not encoded with UTF-8');
+        $this->setExpectedException(
+            'Zend\Text\Figlet\Exception\UnexpectedValueException',
+            'text is not encoded with UTF-8'
+        );
         $isoText = iconv('UTF-8', 'ISO-8859-15', 'Ömläüt');
 
         $figlet  = new Figlet\Figlet();
@@ -223,8 +225,10 @@ class FigletTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('', $figlet->render(''));
     }
 
+    // @codingStandardsIgnoreStart
     protected function _equalAgainstFile($output, $file)
     {
+        // @codingStandardsIgnoreEnd
         $compareString = file_get_contents(__DIR__ . '/Figlet/' . $file);
 
         $this->assertEquals($compareString, $output);

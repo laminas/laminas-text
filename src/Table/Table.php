@@ -194,7 +194,7 @@ class Table
      */
     public function setDecorator($decorator)
     {
-        if (!$decorator instanceof Decorator) {
+        if (! $decorator instanceof Decorator) {
             $decorator = $this->getDecoratorManager()->get($decorator);
         }
 
@@ -306,7 +306,7 @@ class Table
      */
     public function appendRow($row)
     {
-        if (!is_array($row) && !($row instanceof Row)) {
+        if (! is_array($row) && ! ($row instanceof Row)) {
             throw new Exception\InvalidArgumentException('$row must be an array or instance of Zend\Text\Table\Row');
         }
 
@@ -387,7 +387,7 @@ class Table
                 $result .= "\n";
             } else {
                 // Else check if we have to draw the row separator
-                if (!$hasHorizontal) {
+                if (! $hasHorizontal) {
                     $drawSeparator = false; // there is no horizontal character;
                 } elseif ($this->autoSeparate & self::AUTO_SEPARATE_ALL) {
                     $drawSeparator = true;
