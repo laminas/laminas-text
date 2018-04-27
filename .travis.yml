@@ -2,73 +2,75 @@ sudo: false
 
 language: php
 
-branches:
-  except:
-    - /^release-.*$/
-    - /^ghgfk-.*$/
-
 cache:
   directories:
     - $HOME/.composer/cache
-    - $HOME/.local
-    - zf-mkdoc-theme
 
 env:
   global:
-    - SITE_URL: https://zendframework.github.io/zend-text
-    - GH_USER_NAME: "Matthew Weier O'Phinney"
-    - GH_USER_EMAIL: matthew@weierophinney.net
-    - GH_REF: github.com/zendframework/zend-text.git
-    - secure: "PByCrJOLcuybgT2Kk3bb5gPrv1sD2MiOa/3ZBs0EN1TF7mhtc7w6EaatD1TCKEWT8VhbsCvZNZzl7/PdetxXS09Ld8s2vshM6KbGSjn+TTmiNOq/GuvBGBTD9VVeAG0MKn0sq/Aq0NMM5Onelu0kAmOFb5yj3P5lXSc4MzWOBYBkbCBNjd7RYFZ+5YzSb9BdGPP2P2OvoTxBmmfZuZ5l0U9agarLejURVzlppLriL35dVdmo/CA2Ki4lOVEUVCuO4iR7qEz7TokWrku9y+p7hk5TfHeC3FF8jeyXiklCKT2kT0wbWcE5IV/kkzPBUdcVdpXL0hA8BKekLiNhpRnqDKBaBtQmp5VocgPEWlxtOweb0rs5KfPjxPpjNQ6FGg2DiA95nswrLAJIPYZyG+RKaL98kfzAC62V81x2OK1PEI5FXOqZxNjrJKPw345VHi8aMCnGDtbA3YN6Jke1Syy0hpQ5gs4x8CqaiJVCKI70rbjZE+ZXBIo/PO6VyI8km2cpG69jCUKO9Jt/q5ZbbIPAXPElpS2BezGs8Qqz99JGBAfizRf1tF2jZQw6L6YAaewXSYRA+37i57fYxd+1QyBuI5JMjqqxBahKOzoa1Xz5uWNYJeU5aV/sw1xtyjTZx7wYcClVsgXH58V+T1Umh4qvD5NE1n5P8L/4013MBnehXtc="
+    - COMPOSER_ARGS="--no-interaction"
+    - COVERAGE_DEPS="php-coveralls/php-coveralls"
 
 matrix:
   include:
-    - php: 5.5
+    - php: 5.6
       env:
+        - DEPS=lowest
+    - php: 5.6
+      env:
+        - DEPS=locked
+        - LEGACY_DEPS="phpunit/phpunit"
+    - php: 5.6
+      env:
+        - DEPS=latest
+    - php: 7
+      env:
+        - DEPS=lowest
+    - php: 7
+      env:
+        - DEPS=locked
+        - LEGACY_DEPS="phpunit/phpunit"
+    - php: 7
+      env:
+        - DEPS=latest
+    - php: 7.1
+      env:
+        - DEPS=lowest
+    - php: 7.1
+      env:
+        - DEPS=locked
         - CS_CHECK=true
-    - php: 5.5
-      env:
-        - SERVICE_MANAGER_VERSION="^2.7.5"
-    - php: 5.6
-      env:
         - TEST_COVERAGE=true
-        - DEPLOY_DOCS="$(if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then echo -n 'true' ; else echo -n 'false' ; fi)"
-        - PATH="$HOME/.local/bin:$PATH"
-    - php: 5.6
+    - php: 7.1
       env:
-        - SERVICE_MANAGER_VERSION="^2.7.5"
-    - php: 7
-    - php: 7
+        - DEPS=latest
+    - php: 7.2
       env:
-        - SERVICE_MANAGER_VERSION="^2.7.5"
-    - php: hhvm 
-    - php: hhvm
+        - DEPS=lowest
+    - php: 7.2
       env:
-        - SERVICE_MANAGER_VERSION="^2.7.5"
-  allow_failures:
-    - php: hhvm
-
-notifications:
-  irc: "irc.freenode.org#zftalk.dev"
-  email: false
+        - DEPS=locked
+    - php: 7.2
+      env:
+        - DEPS=latest
 
 before_install:
   - if [[ $TEST_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
-  - composer self-update
-  - if [[ $TEST_COVERAGE == 'true' ]]; then composer require --dev --no-update php-coveralls/php-coveralls ; fi
-  - if [[ $SERVICE_MANAGER_VERSION != '' ]]; then composer require --dev --no-update "zendframework/zend-servicemanager:$SERVICE_MANAGER_VERSION" ; fi
-  - if [[ $SERVICE_MANAGER_VERSION == '' ]]; then composer require --dev --no-update "zendframework/zend-servicemanager:^3.0.3" ; fi
 
 install:
-  - travis_retry composer install --no-interaction --ignore-platform-reqs
+  - travis_retry composer install $COMPOSER_ARGS --ignore-platform-reqs
+  - if [[ $LEGACY_DEPS != '' ]]; then travis_retry composer update $COMPOSER_ARGS --with-dependencies $LEGACY_DEPS ; fi
+  - if [[ $DEPS == 'latest' ]]; then travis_retry composer update $COMPOSER_ARGS ; fi
+  - if [[ $DEPS == 'lowest' ]]; then travis_retry composer update --prefer-lowest --prefer-stable $COMPOSER_ARGS ; fi
+  - if [[ $TEST_COVERAGE == 'true' ]]; then travis_retry composer require --dev $COMPOSER_ARGS $COVERAGE_DEPS ; fi
+  - stty cols 120 && composer show
 
 script:
   - if [[ $TEST_COVERAGE == 'true' ]]; then composer test-coverage ; else composer test ; fi
   - if [[ $CS_CHECK == 'true' ]]; then composer cs-check ; fi
-  - if [[ $DEPLOY_DOCS == "true" && "$TRAVIS_TEST_RESULT" == "0" ]]; then wget -O theme-installer.sh "https://raw.githubusercontent.com/zendframework/zf-mkdoc-theme/master/theme-installer.sh" ; chmod 755 theme-installer.sh ; ./theme-installer.sh ; fi
-
-after_success:
-  - if [[ $DEPLOY_DOCS == "true" ]]; then echo "Preparing to build and deploy documentation" ; ./zf-mkdoc-theme/deploy.sh ; echo "Completed deploying documentation" ; fi
 
 after_script:
   - if [[ $TEST_COVERAGE == 'true' ]]; then travis_retry php vendor/bin/php-coveralls -v ; fi
+
+notifications:
+  email: false
