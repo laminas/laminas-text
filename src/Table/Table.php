@@ -10,8 +10,8 @@
 namespace Zend\Text\Table;
 
 use Traversable;
-use Zend\Stdlib\ArrayUtils;
 use Zend\ServiceManager\ServiceManager;
+use Zend\Stdlib\ArrayUtils;
 use Zend\Text\Table\Decorator\DecoratorInterface as Decorator;
 
 /**

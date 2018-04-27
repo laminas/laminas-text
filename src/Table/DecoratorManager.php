@@ -9,9 +9,9 @@
 
 namespace Zend\Text\Table;
 
+use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\Exception\InvalidServiceException;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\ServiceManager\AbstractPluginManager;
 
 /**
  * Plugin manager implementation for text table decorators
