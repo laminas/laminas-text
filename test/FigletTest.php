@@ -9,12 +9,13 @@
 
 namespace ZendTest\Text;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Text\Figlet;
 
 /**
  * @group      Zend_Text
  */
-class FigletTest extends \PHPUnit_Framework_TestCase
+class FigletTest extends TestCase
 {
     public function testStandardAlignLeft()
     {
@@ -64,7 +65,8 @@ class FigletTest extends \PHPUnit_Framework_TestCase
     {
         $figlet = new Figlet\Figlet();
 
-        $this->setExpectedException('Zend\Text\Figlet\Exception\InvalidArgumentException', 'must be a string');
+        $this->expectException('Zend\Text\Figlet\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('must be a string');
         $figlet->render(1);
     }
 
@@ -89,10 +91,8 @@ class FigletTest extends \PHPUnit_Framework_TestCase
 
     public function testIncorrectEncoding()
     {
-        $this->setExpectedException(
-            'Zend\Text\Figlet\Exception\UnexpectedValueException',
-            'text is not encoded with UTF-8'
-        );
+        $this->expectException('Zend\Text\Figlet\Exception\UnexpectedValueException');
+        $this->expectExceptionMessage('text is not encoded with UTF-8');
         $isoText = iconv('UTF-8', 'ISO-8859-15', 'Ömläüt');
 
         $figlet  = new Figlet\Figlet();
@@ -101,13 +101,15 @@ class FigletTest extends \PHPUnit_Framework_TestCase
 
     public function testNonExistentFont()
     {
-        $this->setExpectedException('Zend\Text\Figlet\Exception\RuntimeException', 'not found');
+        $this->expectException('Zend\Text\Figlet\Exception\RuntimeException');
+        $this->expectExceptionMessage('not found');
         $figlet = new Figlet\Figlet(['font' => __DIR__ . '/Figlet/NonExistentFont.flf']);
     }
 
     public function testInvalidFont()
     {
-        $this->setExpectedException('Zend\Text\Figlet\Exception\UnexpectedValueException', 'Not a FIGlet');
+        $this->expectException('Zend\Text\Figlet\Exception\UnexpectedValueException');
+        $this->expectExceptionMessage('Not a FIGlet');
         $figlet = new Figlet\Figlet(['font' => __DIR__ . '/Figlet/InvalidFont.flf']);
     }
 

@@ -9,22 +9,23 @@
 
 namespace ZendTest\Text;
 
+use PHPUnit\Framework\TestCase;
 use Zend\Text;
 
 /**
  * @group      Zend_Text
  */
-class MultiByteTest extends \PHPUnit_Framework_TestCase
+class MultiByteTest extends TestCase
 {
     public function testWordWrapTriggersDeprecatedError()
     {
-        $this->setExpectedException('PHPUnit_Framework_Error_Deprecated');
+        $this->expectException('PHPUnit_Framework_Error_Deprecated');
         $line = Text\MultiByte::wordWrap('äbüöcß', 2, ' ', true);
     }
 
     public function testStrPadTriggersDeprecatedError()
     {
-        $this->setExpectedException('PHPUnit_Framework_Error_Deprecated');
+        $this->expectException('PHPUnit_Framework_Error_Deprecated');
         $text = Text\MultiByte::strPad('äääöö', 2, 'ö');
     }
 }
