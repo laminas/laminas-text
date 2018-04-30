@@ -1,24 +1,23 @@
 <?php
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/zendframework/zend-text for the canonical source repository
+ * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @license   https://github.com/zendframework/zend-text/blob/master/LICENSE.md New BSD License
  */
 
 namespace ZendTest\Text;
 
-use Zend\Text\Table;
+use PHPUnit\Framework\TestCase;
 use Zend\ServiceManager\ServiceManager;
+use Zend\Text\Table;
 use Zend\Text\Table\Decorator;
 
 /**
  * @group      Zend_Text
  */
-class TableTest extends \PHPUnit_Framework_TestCase
+class TableTest extends TestCase
 {
-    public function tearDown()
+    protected function tearDown()
     {
         Table\Table::setInputCharset('utf-8');
         Table\Table::setOutputCharset('utf-8');
@@ -112,19 +111,22 @@ class TableTest extends \PHPUnit_Framework_TestCase
 
     public function testColumnSetContentInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'must be a string');
+        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('must be a string');
         $column = new Table\Column(1);
     }
 
     public function testColumnSetAlignInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\OutOfBoundsException', 'Invalid align supplied');
+        $this->expectException('Zend\Text\Table\Exception\OutOfBoundsException');
+        $this->expectExceptionMessage('Invalid align supplied');
         $column = new Table\Column(null, false);
     }
 
     public function testColumnSetColSpanInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'must be an integer and greater than 0');
+        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('must be an integer and greater than 0');
         $column = new Table\Column(null, null, 0);
     }
 
@@ -132,7 +134,8 @@ class TableTest extends \PHPUnit_Framework_TestCase
     {
         $column = new Table\Column();
 
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'must be an integer and greater than 0');
+        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('must be an integer and greater than 0');
         $column->render(0);
     }
 
@@ -177,7 +180,8 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column());
         $row->appendColumn(new Table\Column());
 
-        $this->setExpectedException('Zend\Text\Table\Exception\OverflowException', 'Too many columns');
+        $this->expectException('Zend\Text\Table\Exception\OverflowException');
+        $this->expectExceptionMessage('Too many columns');
         $row->render([10], $decorator);
     }
 
@@ -185,7 +189,8 @@ class TableTest extends \PHPUnit_Framework_TestCase
     {
         $row = new Table\Row();
 
-        $this->setExpectedException('Zend\Text\Table\Exception\UnexpectedValueException', 'render() must be called');
+        $this->expectException('Zend\Text\Table\Exception\UnexpectedValueException');
+        $this->expectExceptionMessage('render() must be called');
         $row->getColumnWidths();
     }
 
@@ -207,7 +212,10 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column("foo\nbar"));
         $row->appendColumn(new Table\Column("foobar"));
 
-        $this->assertEquals($row->render([10, 10], $decorator), "│foo       │foobar    │\n│bar       │          │\n");
+        $this->assertEquals(
+            $row->render([10, 10], $decorator),
+            "│foo       │foobar    │\n│bar       │          │\n"
+        );
     }
 
     public function testUnicodeRowMultiLine()
@@ -218,12 +226,16 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column("föö\nbär"));
         $row->appendColumn(new Table\Column("fööbär"));
 
-        $this->assertEquals($row->render([3, 10], $decorator), "│föö│fööbär    │\n│bär│          │\n");
+        $this->assertEquals(
+            $row->render([3, 10], $decorator),
+            "│föö│fööbär    │\n│bär│          │\n"
+        );
     }
 
     public function testTableConstructInvalidColumnWidthsItem()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'invalid column width');
+        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectExceptionMessage('invalid column width');
         $table = new Table\Table(['columnWidths' => ['foo']]);
     }
 
@@ -270,7 +282,10 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->createColumn('foobar');
         $table->appendRow($row);
 
-        $this->assertEquals($table->render(), "┌──────────┐\n│foobar    │\n└──────────┘\n");
+        $this->assertEquals(
+            $table->render(),
+            "┌──────────┐\n│foobar    │\n└──────────┘\n"
+        );
     }
 
     public function testDefaultColumnAlign()
@@ -281,7 +296,10 @@ class TableTest extends \PHPUnit_Framework_TestCase
 
         $table->appendRow(['foobar']);
 
-        $this->assertEquals($table->render(), "┌──────────┐\n│  foobar  │\n└──────────┘\n");
+        $this->assertEquals(
+            $table->render(),
+            "┌──────────┐\n│  foobar  │\n└──────────┘\n"
+        );
     }
 
     public function testRowGetColumns()
@@ -313,7 +331,8 @@ class TableTest extends \PHPUnit_Framework_TestCase
     {
         $table = new Table\Table(['columnWidths' => [10]]);
 
-        $this->setExpectedException('Zend\Text\Table\Exception\UnexpectedValueException', 'No rows were added');
+        $this->expectException('Zend\Text\Table\Exception\UnexpectedValueException');
+        $this->expectExceptionMessage('No rows were added');
         $table->render();
     }
 
@@ -330,11 +349,14 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column('foobar', null, 2));
         $table->appendRow($row);
 
-        $this->assertEquals($table->render(),   "┌──────────┬──────────┐\n"
-                                              . "│foobar    │foobar    │\n"
-                                              . "├──────────┴──────────┤\n"
-                                              . "│foobar               │\n"
-                                              . "└─────────────────────┘\n");
+        $this->assertEquals(
+            $table->render(),
+            "┌──────────┬──────────┐\n"
+            . "│foobar    │foobar    │\n"
+            . "├──────────┴──────────┤\n"
+            . "│foobar               │\n"
+            . "└─────────────────────┘\n"
+        );
     }
 
     public function testTableComplex()
@@ -361,15 +383,18 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column('foobar'));
         $table->appendRow($row);
 
-        $this->assertEquals($table->render(),   "┌──────────┬─────────────────────┐\n"
-                                              . "│foobar    │foobar               │\n"
-                                              . "├──────────┼─────────────────────┤\n"
-                                              . "│foobar    │foobar               │\n"
-                                              . "├──────────┴─────────────────────┤\n"
-                                              . "│foobar                          │\n"
-                                              . "├──────────┬──────────┬──────────┤\n"
-                                              . "│foobar    │foobar    │foobar    │\n"
-                                              . "└──────────┴──────────┴──────────┘\n");
+        $this->assertEquals(
+            $table->render(),
+            "┌──────────┬─────────────────────┐\n"
+            . "│foobar    │foobar               │\n"
+            . "├──────────┼─────────────────────┤\n"
+            . "│foobar    │foobar               │\n"
+            . "├──────────┴─────────────────────┤\n"
+            . "│foobar                          │\n"
+            . "├──────────┬──────────┬──────────┤\n"
+            . "│foobar    │foobar    │foobar    │\n"
+            . "└──────────┴──────────┴──────────┘\n"
+        );
     }
 
     public function testTableMagicToString()
@@ -380,7 +405,10 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column('foobar'));
         $table->appendRow($row);
 
-        $this->assertEquals((string) $table, "┌──────────┐\n│foobar    │\n└──────────┘\n");
+        $this->assertEquals(
+            (string) $table,
+            "┌──────────┐\n│foobar    │\n└──────────┘\n"
+        );
     }
 
     public function testDecoratorUnicode()
