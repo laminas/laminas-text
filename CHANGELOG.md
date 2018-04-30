@@ -2,9 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.7.0 - TBD
-
-### Added
+## 2.7.0 - 2018-04-30
 
 ### Added
 
@@ -28,30 +26,12 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 2.6.1 - TBD
-
-### Added
-
-- Nothing.
-
-### Deprecated
-
-- Nothing.
-
-### Removed
-
-- Nothing.
-
-### Fixed
-
-- Nothing.
-
 ## 2.6.0 - 2016-02-08
 
 ### Added
 
 - [#10](https://github.com/zendframework/zend-text/pull/10) adds and publishes
-  documentation; view it at https://zendframework.github.io/zend-text/
+  documentation; view it at https://docs.zendframework.com/zend-text/
 
 ### Deprecated
 
