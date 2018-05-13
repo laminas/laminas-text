@@ -157,7 +157,7 @@ class Table
      */
     public function setColumnWidths(array $columnWidths)
     {
-        if (count($columnWidths) === 0) {
+        if (! $columnWidths) {
             throw new Exception\InvalidArgumentException('You must supply at least one column');
         }
 
@@ -342,7 +342,7 @@ class Table
     public function render()
     {
         // There should be at least one row
-        if (count($this->rows) === 0) {
+        if (! $this->rows) {
             throw new Exception\UnexpectedValueException('No rows were added to the table yet');
         }
 
