@@ -125,7 +125,7 @@ class Row
 
         // If there is no single column, create a column which spans over the
         // entire row
-        if (count($this->columns) === 0) {
+        if (! $this->columns) {
             $this->appendColumn(new Column(null, null, count($columnWidths)));
         }
 
