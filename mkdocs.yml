@@ -1,10 +1,9 @@
 docs_dir: docs/book
 site_dir: docs/html
-pages:
-    - index.md
+nav:
+    - Home: index.md
     - Figlets: figlet.md
     - Tables: table.md
 site_name: zend-text
-site_description: Zend\Text
+site_description: "Create FIGlets and text-based tables"
 repo_url: 'https://github.com/zendframework/zend-text'
-copyright: 'Copyright (c) 2005-2018 <a href="https://www.zend.com/">Zend Technologies USA Inc.</a>'
