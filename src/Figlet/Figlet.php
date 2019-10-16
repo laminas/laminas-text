@@ -1087,11 +1087,11 @@ class Figlet
             }
 
             // Convert it if required
-            if (substr($uniCode, 0, 2) === '0x') {
+            if (0 === strpos($uniCode, '0x')) {
                 $uniCode = hexdec(substr($uniCode, 2));
-            } elseif (substr($uniCode, 0, 1) === '0' and
+            } elseif (0 === strpos($uniCode, '0') &&
                        $uniCode !== '0' or
-                       substr($uniCode, 0, 2) === '-0') {
+                       0 === strpos($uniCode, '-0')) {
                 $uniCode = octdec($uniCode);
             } else {
                 $uniCode = (int) $uniCode;
