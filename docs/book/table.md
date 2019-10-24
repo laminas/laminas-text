@@ -98,7 +98,7 @@ echo $table;
 
 The above results in the following output:
 
-```php
+```text
 ┌──────────┬────────────────────┐
 │Zend      │Framework           │
 |──────────|────────────────────|

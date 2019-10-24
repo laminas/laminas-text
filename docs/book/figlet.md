@@ -62,7 +62,7 @@ echo $figlet->render('Zend');
 
 Assuming you are using a monospace font, the above results in the following:
 
-```
+```text
   ______    ______    _  __   ______
  |__  //   |  ___||  | \| || |  __ \\
    / //    | ||__    |  ' || | |  \ ||
