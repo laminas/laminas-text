@@ -5,7 +5,7 @@ decorators.  This can be helpful for sending structured data in text emails, or
 to display table information in a CLI application. `Zend\Text\Table` supports
 multi-line columns, column spans, and alignment.
 
-> ## Encoding
+> ### Encoding
 >
 > `Zend\Text\Table` expects your strings to be UTF-8 encoded by default. If this
 > is not the case, you can either supply the character encoding as a parameter
@@ -98,7 +98,7 @@ echo $table;
 
 The above results in the following output:
 
-```php
+```text
 ┌──────────┬────────────────────┐
 │Zend      │Framework           │
 |──────────|────────────────────|
