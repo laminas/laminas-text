@@ -7,14 +7,14 @@ FIGlets use a special font format, called FLT (FigLet Font). By default, one
 standard font is shipped with `Zend\Text\Figlet`, but you can download
 additional fonts at [http://www.figlet.org](http://www.figlet.org).
 
-> ## Compressed fonts
+> ### Compressed Fonts
 >
 > `Zend\Text\Figlet` supports gzipped fonts. This means that you can take an
 > `.flf` file and gzip it.  To allow `Zend\Text\Figlet` to recognize this, the
 > gzipped font must have the extension `.gz`.  Further, to be able to use
 > gzipped fonts, you have to have enabled the PHP GZIP extension.
 
-> ## Encoding
+> ### Encoding
 >
 > `Zend\Text\Figlet` expects your strings to be UTF-8 encoded by default. If
 > this is not the case, you can supply the character encoding to the second
