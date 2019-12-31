@@ -1,18 +1,17 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Table;
+namespace Laminas\Text\Table;
 
-use Zend\Text\Table\Decorator\DecoratorInterface as Decorator;
+use Laminas\Text\Table\Decorator\DecoratorInterface as Decorator;
 
 /**
- * Row class for Zend\Text\Table
+ * Row class for Laminas\Text\Table
  */
 class Row
 {
@@ -57,7 +56,7 @@ class Row
     /**
      * Append a column to the row
      *
-     * @param  \Zend\Text\Table\Column $column The column to append to the row
+     * @param  \Laminas\Text\Table\Column $column The column to append to the row
      * @return Row
      */
     public function appendColumn(Column $column)
