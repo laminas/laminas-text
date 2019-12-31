@@ -1,22 +1,20 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- * @package   Zend_Text
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Figlet\Exception;
+namespace Laminas\Text\Figlet\Exception;
 
-use Zend\Text\Exception;
+use Laminas\Text\Exception;
 
 /**
- * Exception class for Zend_Text
+ * Exception class for Laminas_Text
  *
- * @category  Zend
- * @package   Zend_Text_Figlet
+ * @category  Laminas
+ * @package   Laminas_Text_Figlet
  */
 class UnexpectedValueException
     extends Exception\UnexpectedValueException
