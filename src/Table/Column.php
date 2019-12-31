@@ -1,18 +1,17 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Table;
+namespace Laminas\Text\Table;
 
-use Zend\Stdlib\StringUtils;
+use Laminas\Stdlib\StringUtils;
 
 /**
- * Column class for Zend\Text\Table\Row
+ * Column class for Laminas\Text\Table\Row
  */
 class Column
 {
@@ -52,7 +51,7 @@ class Column
     protected $allowedAligns = array(self::ALIGN_LEFT, self::ALIGN_CENTER, self::ALIGN_RIGHT);
 
     /**
-     * Create a column for a Zend\Text\Table\Row object.
+     * Create a column for a Laminas\Text\Table\Row object.
      *
      * @param string  $content  The content of the column
      * @param string  $align    The align of the content
@@ -78,7 +77,7 @@ class Column
      * Set the content.
      *
      * If $charset is not defined, it is assumed that $content is encoded in
-     * the charset defined via Zend\Text\Table::setInputCharset() (defaults
+     * the charset defined via Laminas\Text\Table::setInputCharset() (defaults
      * to utf-8).
      *
      * @param  string $content  Content of the column
