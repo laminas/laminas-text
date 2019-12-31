@@ -1,19 +1,18 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Text;
+namespace LaminasTest\Text;
 
-use Zend\Text\Table;
-use Zend\Text\Table\Decorator;
+use Laminas\Text\Table;
+use Laminas\Text\Table\Decorator;
 
 /**
- * @group      Zend_Text
+ * @group      Laminas_Text
  */
 class TableTest extends \PHPUnit_Framework_TestCase
 {
@@ -111,19 +110,19 @@ class TableTest extends \PHPUnit_Framework_TestCase
 
     public function testColumnSetContentInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'must be a string');
+        $this->setExpectedException('Laminas\Text\Table\Exception\InvalidArgumentException', 'must be a string');
         $column = new Table\Column(1);
     }
 
     public function testColumnSetAlignInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\OutOfBoundsException', 'Invalid align supplied');
+        $this->setExpectedException('Laminas\Text\Table\Exception\OutOfBoundsException', 'Invalid align supplied');
         $column = new Table\Column(null, false);
     }
 
     public function testColumnSetColSpanInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'must be an integer and greater than 0');
+        $this->setExpectedException('Laminas\Text\Table\Exception\InvalidArgumentException', 'must be an integer and greater than 0');
         $column = new Table\Column(null, null, 0);
     }
 
@@ -131,7 +130,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
     {
         $column = new Table\Column();
 
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'must be an integer and greater than 0');
+        $this->setExpectedException('Laminas\Text\Table\Exception\InvalidArgumentException', 'must be an integer and greater than 0');
         $column->render(0);
     }
 
@@ -176,7 +175,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
         $row->appendColumn(new Table\Column());
         $row->appendColumn(new Table\Column());
 
-        $this->setExpectedException('Zend\Text\Table\Exception\OverflowException', 'Too many columns');
+        $this->setExpectedException('Laminas\Text\Table\Exception\OverflowException', 'Too many columns');
         $row->render(array(10), $decorator);
     }
 
@@ -184,7 +183,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
     {
         $row = new Table\Row();
 
-        $this->setExpectedException('Zend\Text\Table\Exception\UnexpectedValueException', 'render() must be called');
+        $this->setExpectedException('Laminas\Text\Table\Exception\UnexpectedValueException', 'render() must be called');
         $row->getColumnWidths();
     }
 
@@ -222,7 +221,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
 
     public function testTableConstructInvalidColumnWidthsItem()
     {
-        $this->setExpectedException('Zend\Text\Table\Exception\InvalidArgumentException', 'invalid column width');
+        $this->setExpectedException('Laminas\Text\Table\Exception\InvalidArgumentException', 'invalid column width');
         $table = new Table\Table(array('columnWidths' => array('foo')));
     }
 
@@ -312,7 +311,7 @@ class TableTest extends \PHPUnit_Framework_TestCase
     {
         $table = new Table\Table(array('columnWidths' => array(10)));
 
-        $this->setExpectedException('Zend\Text\Table\Exception\UnexpectedValueException', 'No rows were added');
+        $this->setExpectedException('Laminas\Text\Table\Exception\UnexpectedValueException', 'No rows were added');
         $table->render();
     }
 
