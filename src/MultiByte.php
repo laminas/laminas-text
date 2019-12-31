@@ -1,13 +1,14 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-text for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-text/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text;
+namespace Laminas\Text;
 
-use Zend\Stdlib\StringUtils;
+use Laminas\Stdlib\StringUtils;
 
 /**
  * Contains multibyte safe string methods
@@ -24,18 +25,18 @@ class MultiByte
      * @param  string  $charset
      * @throws Exception\InvalidArgumentException
      * @return string
-     * @deprecated Please use Zend\Stdlib\StringUtils instead
+     * @deprecated Please use Laminas\Stdlib\StringUtils instead
      */
     public static function wordWrap($string, $width = 75, $break = "\n", $cut = false, $charset = 'utf-8')
     {
         trigger_error(sprintf(
             "This method is deprecated, please use '%s' instead",
-            'Zend\Stdlib\StringUtils::getWrapper(<charset>)->wordWrap'
+            'Laminas\Stdlib\StringUtils::getWrapper(<charset>)->wordWrap'
         ), E_USER_DEPRECATED);
 
         try {
             return StringUtils::getWrapper($charset)->wordWrap($string, $width, $break, $cut);
-        } catch (\Zend\Stdlib\Exception\InvalidArgumentException $e) {
+        } catch (\Laminas\Stdlib\Exception\InvalidArgumentException $e) {
             throw new Exception\InvalidArgumentException($e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -49,13 +50,13 @@ class MultiByte
      * @param  int $padType
      * @param  string  $charset
      * @return string
-     * @deprecated Please use Zend\Stdlib\StringUtils instead
+     * @deprecated Please use Laminas\Stdlib\StringUtils instead
      */
     public static function strPad($input, $padLength, $padString = ' ', $padType = STR_PAD_RIGHT, $charset = 'utf-8')
     {
         trigger_error(sprintf(
             "This method is deprecated, please use '%s' instead",
-            'Zend\Stdlib\StringUtils::getWrapper(<charset>)->strPad'
+            'Laminas\Stdlib\StringUtils::getWrapper(<charset>)->strPad'
         ), E_USER_DEPRECATED);
 
         return StringUtils::getWrapper($charset)->strPad($input, $padLength, $padString, $padType);

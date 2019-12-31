@@ -1,19 +1,20 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-text for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-text/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Text;
+namespace LaminasTest\Text;
 
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Text\Table;
+use Laminas\Text\Table\Decorator;
 use PHPUnit\Framework\TestCase;
-use Zend\ServiceManager\ServiceManager;
-use Zend\Text\Table;
-use Zend\Text\Table\Decorator;
 
 /**
- * @group      Zend_Text
+ * @group      Laminas_Text
  */
 class TableTest extends TestCase
 {
@@ -111,21 +112,21 @@ class TableTest extends TestCase
 
     public function testColumnSetContentInvalidArgument()
     {
-        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
         $this->expectExceptionMessage('must be a string');
         $column = new Table\Column(1);
     }
 
     public function testColumnSetAlignInvalidArgument()
     {
-        $this->expectException('Zend\Text\Table\Exception\OutOfBoundsException');
+        $this->expectException('Laminas\Text\Table\Exception\OutOfBoundsException');
         $this->expectExceptionMessage('Invalid align supplied');
         $column = new Table\Column(null, false);
     }
 
     public function testColumnSetColSpanInvalidArgument()
     {
-        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
         $this->expectExceptionMessage('must be an integer and greater than 0');
         $column = new Table\Column(null, null, 0);
     }
@@ -134,7 +135,7 @@ class TableTest extends TestCase
     {
         $column = new Table\Column();
 
-        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
         $this->expectExceptionMessage('must be an integer and greater than 0');
         $column->render(0);
     }
@@ -180,7 +181,7 @@ class TableTest extends TestCase
         $row->appendColumn(new Table\Column());
         $row->appendColumn(new Table\Column());
 
-        $this->expectException('Zend\Text\Table\Exception\OverflowException');
+        $this->expectException('Laminas\Text\Table\Exception\OverflowException');
         $this->expectExceptionMessage('Too many columns');
         $row->render([10], $decorator);
     }
@@ -189,7 +190,7 @@ class TableTest extends TestCase
     {
         $row = new Table\Row();
 
-        $this->expectException('Zend\Text\Table\Exception\UnexpectedValueException');
+        $this->expectException('Laminas\Text\Table\Exception\UnexpectedValueException');
         $this->expectExceptionMessage('render() must be called');
         $row->getColumnWidths();
     }
@@ -234,7 +235,7 @@ class TableTest extends TestCase
 
     public function testTableConstructInvalidColumnWidthsItem()
     {
-        $this->expectException('Zend\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
         $this->expectExceptionMessage('invalid column width');
         $table = new Table\Table(['columnWidths' => ['foo']]);
     }
@@ -316,7 +317,7 @@ class TableTest extends TestCase
         $row = new Table\Row();
         $row->createColumn('foo');
 
-        $this->assertInstanceOf('Zend\Text\Table\Column', $row->getColumn(0));
+        $this->assertInstanceOf('Laminas\Text\Table\Column', $row->getColumn(0));
     }
 
     public function testRowGetInvalidColumn()
@@ -331,7 +332,7 @@ class TableTest extends TestCase
     {
         $table = new Table\Table(['columnWidths' => [10]]);
 
-        $this->expectException('Zend\Text\Table\Exception\UnexpectedValueException');
+        $this->expectException('Laminas\Text\Table\Exception\UnexpectedValueException');
         $this->expectExceptionMessage('No rows were added');
         $table->render();
     }
