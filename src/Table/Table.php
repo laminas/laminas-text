@@ -1,20 +1,19 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Table;
+namespace Laminas\Text\Table;
 
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Text\Table\Decorator\DecoratorInterface as Decorator;
 use Traversable;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Text\Table\Decorator\DecoratorInterface as Decorator;
 
 /**
- * Zend\Text\Table\Table enables developers to create tables out of characters
+ * Laminas\Text\Table\Table enables developers to create tables out of characters
  */
 class Table
 {
@@ -300,14 +299,14 @@ class Table
      * Append a row to the table
      *
      * @param  array|Row $row The row to append to the table
-     * @throws Exception\InvalidArgumentException When $row is neither an array nor Zend_Zext_Table_Row
+     * @throws Exception\InvalidArgumentException When $row is neither an array nor Laminas_Zext_Table_Row
      * @throws Exception\OverflowException When a row contains too many columns
      * @return Table
      */
     public function appendRow($row)
     {
         if (!is_array($row) && !($row instanceof Row)) {
-            throw new Exception\InvalidArgumentException('$row must be an array or instance of Zend\Text\Table\Row');
+            throw new Exception\InvalidArgumentException('$row must be an array or instance of Laminas\Text\Table\Row');
         }
 
         if (is_array($row)) {
