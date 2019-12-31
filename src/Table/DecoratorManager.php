@@ -1,17 +1,15 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- * @package   Zend_Text
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Table;
+namespace Laminas\Text\Table;
 
-use Zend\ServiceManager\AbstractPluginManager;
-use Zend\ServiceManager\ConfigInterface;
+use Laminas\ServiceManager\AbstractPluginManager;
+use Laminas\ServiceManager\ConfigInterface;
 
 /**
  * Plugin manager implementation for text table decorators
@@ -20,8 +18,8 @@ use Zend\ServiceManager\ConfigInterface;
  * Decorator\DecoratorInterface. Additionally, it registers a number of default
  * decorators.
  *
- * @category   Zend
- * @package    Zend_View
+ * @category   Laminas
+ * @package    Laminas_View
  */
 class DecoratorManager extends AbstractPluginManager
 {
@@ -31,8 +29,8 @@ class DecoratorManager extends AbstractPluginManager
      * @var array
      */
     protected $invokableClasses = array(
-        'ascii'   => 'Zend\Text\Table\Decorator\Ascii',
-        'unicode' => 'Zend\Text\Table\Decorator\Unicode',
+        'ascii'   => 'Laminas\Text\Table\Decorator\Ascii',
+        'unicode' => 'Laminas\Text\Table\Decorator\Unicode',
     );
 
     /**
