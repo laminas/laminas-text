@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create FIGlets and text-based tables">  
+    <link rel="canonical" href="https://docs.laminas.dev/figlet/">
+    <link rel="shortcut icon" href="/img/trademark-laminas-foundation-rgb.svg">
+
+    <title>Figlets - laminas-text - Laminas Docs</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body id="page-top" class="components">
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        
+        <a class="logo-link navbar-brand offset-md-2" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
+            <img src="../img/laminas-foundation-white.svg" height="28" alt="Lamnias">
+        </a>
+        <a class="navbar-title" href="https://docs.laminas.dev/" data-tooltip data-placement="bottom" title="Go to the Laminas Documentation">
+            Documentation
+        </a>
+
+        
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://docs.laminas.dev" class="nav-link">All Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
+                </li>
+            </ul>
+
+            
+            
+                <div class="d-block d-sm-none">
+                    
+    <div class="subnavigation hidden-print">
+        <h4 class="subnavigation__title">
+            <a href="..">laminas-text</a>
+        </h4>
+
+        <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+        <ul class="subnavigation__list">
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item subnavigation__list-item--active">
+                                <a href="./" class="subnavigation__link">Figlets</a>
+                            </li>
+                        
+                    
+                
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item ">
+                                <a href="../table/" class="subnavigation__link">Tables</a>
+                            </li>
+                        
+                    
+                
+            
+        </ul>
+    </div>
+
+                </div>
+            
+
+            
+            <div class="d-block d-sm-none">
+                <div class="component-selector">
+    
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+    <header class="header">
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="col-6 offset-md-2">
+                <h1 class="header__title">
+                    Components
+
+                    
+                        <small class="header__subtitle">laminas-text</small>
+                    
+                </h1>
+            </div>
+
+            
+            <div class="col-4 text-sm-right">
+                
+                    
+
+                    <a href="#" class="header__link header__link--search" data-toggle="modal" data-target="#mkdocs_search_modal" title="Open search">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                    <a href="https://github.com/laminas/laminas-text/" class="header__link header__link--github" title="Go to repository of laminas-text">
+                        <i class="fa fa-github"></i> GitHub
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-12">
+                
+    
+
+    
+    
+        <div class="toc">
+            <h6 class="toc__headline">On this page</h6>
+            <ul class="toc__list">
+                
+                    <li class="toc__entry">
+                        <a href="#basic-usage" class="toc__link">Basic Usage</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+
+            </div>
+            <div class="col-md-7 col-sm-12 content" role="main" data-spy="scroll" data-target=".toc">
+                
+                    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        
+            <li class="breadcrumb-item"><a href="">Overview</a></li>
+
+            
+                <li class="breadcrumb-item"><a href="..">laminas-text</a></li>
+
+                
+
+                <li class="breadcrumb-item active" aria-current="page">Figlets</li>
+            
+        
+    </ol>
+</nav>
+
+
+
+
+
+
+    
+    
+
+    <h1 id="figlets">Figlets</h1>
+<p><code>Laminas\Text\Figlet</code> is a component which enables developers to create a so called FIGlet text.
+FIGlet text is a string represented as <em>ASCII</em> art.</p>
+<p>FIGlets use a special font format, called FLT (FigLet Font). By default, one
+standard font is shipped with <code>Laminas\Text\Figlet</code>, but you can download
+additional fonts at <a href="http://www.figlet.org">http://www.figlet.org</a>.</p>
+<blockquote>
+<h3>Compressed Fonts</h3>
+<p><code>Laminas\Text\Figlet</code> supports gzipped fonts. This means that you can take an
+<code>.flf</code> file and gzip it.  To allow <code>Laminas\Text\Figlet</code> to recognize this, the
+gzipped font must have the extension <code>.gz</code>.  Further, to be able to use
+gzipped fonts, you have to have enabled the PHP GZIP extension.</p>
+<h3>Encoding</h3>
+<p><code>Laminas\Text\Figlet</code> expects your strings to be UTF-8 encoded by default. If
+this is not the case, you can supply the character encoding to the second
+parameter to the <code>render()</code> method.</p>
+</blockquote>
+<p>You can define multiple options for a FIGlet. When instantiating
+<code>Laminas\Text\Figlet\Figlet</code>, you can supply an array, a <code>Traversable</code> that
+supplies both keys and values, or an instance of <code>Laminas\Config\Config</code>.</p>
+<ul>
+<li><code>font</code>: Defines the font which should be used for rendering. If not defines,
+  the built-in font will be used.</li>
+<li><code>outputWidth</code>: Defines the maximum width of the output string. This is used
+  for word-wrap as well as justification. Be careful when using small values;
+  they may result in an undefined behaviour. The default value is 80.</li>
+<li><code>handleParagraphs</code>: A boolean which indicates how new lines are handled. When
+  set to <code>TRUE</code>, single new lines are ignored and instead treated as single
+  spaces; only multiple new lines will be handled as such. The default value is
+  <code>FALSE</code>.</li>
+<li><code>justification</code>: May be one of the <code>Laminas\Text\Figlet\Figlet::JUSTIFICATION_*</code>
+  constants, which include <code>JUSTIFICATION_LEFT</code>, <code>JUSTIFICATION_CENTER</code>, and
+  <code>JUSTIFICATION_RIGHT</code> The default justification is defined by the
+  <code>rightToLeft</code> value.</li>
+<li><code>rightToLeft</code>: Defines the direction in which text is written. May be either
+  <code>Laminas\Text\Figlet\Figlet::DIRECTION_LEFT_TO_RIGHT</code> or
+  <code>Laminas\Text\Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT</code>. By default, the setting of
+  the font file is used.  When justification is not defined, a text written from
+  right-to-left is automatically right-aligned.</li>
+<li><code>smushMode</code>: An integer bitfield which defines how single characters are
+  smushed together; can be the sum of multiple values from
+  <code>Laminas\Text\Figlet\Figlet::SM_*</code>. The component defines the following smush
+  modes: <code>SM_EQUAL</code>, <code>SM_LOWLINE</code>, <code>SM_HIERARCHY</code>, <code>SM_PAIR</code>, <code>SM_BIGX</code>,
+  <code>SM_HARDBLANK</code>, <code>SM_KERN</code>, and <code>SM_SMUSH</code>. A value of 0 doesn't disable the
+  entire smushing, but forces <code>SM_KERN</code> to be applied, while a value of -1
+  disables it. An explanation of the different smush modes can be found
+  <a href="http://www.jave.de/figlet/figfont.txt">here</a>. By default the setting of the
+  font file is used. The smush mode option is normally used only by font
+  designers testing the various layoutmodes with a new font.</li>
+</ul>
+<h2 id="basic-usage">Basic Usage</h2>
+<p> <div class=codehilite><pre><span></span><span class=x>$figlet = new Laminas\Text\Figlet\Figlet();</span>
+<span class=x>echo $figlet-&gt;render(&#39;Laminas&#39;);</span>
+</pre></div></p>
+<p>Assuming you are using a monospace font, the above results in the following:</p>
+<p> <div class=codehilite><pre><span></span>  ______    ______    _  __   ______
+ |__  //   |  ___||  | \| || |  __ \\
+   / //    | ||__    |  &#39; || | |  \ ||
+  / //__   | ||___   | .  || | |__/ ||
+ /_____||  |_____||  |_|\_|| |_____//
+ `-----`&#39;  `-----`   `-` -`&#39;  -----`
+</pre></div></p>
+
+
+
+
+    <nav>
+    <ul class="page-nav hidden-print">
+
+        
+        <li class="page-nav__item">
+            
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="..">
+                    <i class="fa fa-chevron-left"></i> Previous
+                </a>
+            
+        </li>
+
+        
+        <li class="page-nav__item">
+            
+                <a rel="next" class="page-nav__link page-nav__link--next" href="../table/">
+                    Next <i class="fa fa-chevron-right"></i>
+                </a>
+            
+        </li>
+    </ul>
+</nav>
+
+
+
+
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="https://github.com/laminas/laminas-text/edit/master/docs/book/figlet.md" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
+
+                
+            </div>
+            <div class="col-md-3 col-sm-12 sidebar">
+                
+                    <div class="component-selector">
+    
+    <h5 class="component-selector__subtitle">Find documentation…</h5>
+    <select class="form-control component-selector__control">
+        <option value="/">Overview</option>
+        <optgroup label="Components"></optgroup>
+    </select>
+</div>
+                    
+    <div class="subnavigation hidden-print">
+        <h4 class="subnavigation__title">
+            <a href="..">laminas-text</a>
+        </h4>
+
+        <h5 class="subnavigation__subtitle">Table of Contents</h5>
+
+        <ul class="subnavigation__list">
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item subnavigation__list-item--active">
+                                <a href="./" class="subnavigation__link">Figlets</a>
+                            </li>
+                        
+                    
+                
+            
+
+                
+                
+
+                    
+                    
+                        
+                            <li class="subnavigation__list-item ">
+                                <a href="../table/" class="subnavigation__link">Tables</a>
+                            </li>
+                        
+                    
+                
+            
+        </ul>
+    </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+    <div class="container">
+
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="footer__button" href="#page-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 offset-md-2">
+                <h5>Laminas</h5>
+                <ul>
+                    <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
+                    <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
+                    <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+
+            
+            <div class="col-md-4 offset-md-2">
+                <h4 class="footer__headline">Support</h4>
+                <ul class="support__list">
+                    <li class="support__list-item">
+                        <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://laminas.dev/chat" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://github.com/laminas" class="support__link" title="Github"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://twitter.com/getlaminas" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://getlaminas.org/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://getlaminas.org/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">License</h4>
+                <p>
+                    Code licensed under <a
+                        href="https://github.com/laminas/laminas-text//blob/master/LICENSE.md">BSD 3-Clause</a>.
+                </p>
+            </div>
+
+            
+            <div class="col-md-3">
+                <h4 class="footer__headline">Copyright</h4>
+                <p>
+                    <!--Built with love by the Laminas team with the help of our
+                    <a href="https://github.com/laminas/laminas-text//graphs/contributors">contributors</a>.<br>-->
+                    &copy; 2019-2019 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        let base_url = '..',
+            project  = "components",
+            siteName = 'laminas-text';
+    </script>
+    <script src="/js/scripts.js"></script>
+        <script src="../search/main.js"></script>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Search</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search in laminas-text" id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+
+</html>
