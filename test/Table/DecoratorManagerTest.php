@@ -1,20 +1,19 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Text\Table;
+namespace LaminasTest\Text\Table;
 
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\ServiceManager\Test\CommonPluginManagerTrait;
+use Laminas\Text\Table\Decorator\DecoratorInterface;
+use Laminas\Text\Table\DecoratorManager;
+use Laminas\Text\Table\Exception\InvalidDecoratorException;
 use PHPUnit_Framework_TestCase as TestCase;
-use Zend\ServiceManager\ServiceManager;
-use Zend\ServiceManager\Test\CommonPluginManagerTrait;
-use Zend\Text\Table\Decorator\DecoratorInterface;
-use Zend\Text\Table\DecoratorManager;
-use Zend\Text\Table\Exception\InvalidDecoratorException;
 
 class DecoratorManagerTest extends TestCase
 {

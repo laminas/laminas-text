@@ -1,20 +1,20 @@
-# zend-text
+# laminas-text
 
-[![Build Status](https://secure.travis-ci.org/zendframework/zend-text.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-text)
-[![Coverage Status](https://coveralls.io/repos/zendframework/zend-text/badge.svg?branch=master)](https://coveralls.io/r/zendframework/zend-text?branch=master)
+[![Build Status](https://travis-ci.org/laminas/laminas-text.svg?branch=master)](https://travis-ci.org/laminas/laminas-text)
+[![Coverage Status](https://coveralls.io/repos/laminas/laminas-text/badge.svg?branch=master)](https://coveralls.io/r/laminas/laminas-text?branch=master)
 
-`Zend\Text` is a component to work on text strings. It contains the subcomponents:
+`Laminas\Text` is a component to work on text strings. It contains the subcomponents:
 
-- `Zend\Text\Figlet` that enables developers to create a so called FIGlet text.
+- `Laminas\Text\Figlet` that enables developers to create a so called FIGlet text.
   A FIGlet text is a string, which is represented as ASCII art. FIGlets use a
   special font format, called FLT (FigLet Font). By default, one standard font is
-  shipped with `Zend\Text\Figlet`, but you can download additional fonts [here]( http://www.figlet.org)
-- `Zend\Text\Table` to create text based tables on the fly with different
+  shipped with `Laminas\Text\Figlet`, but you can download additional fonts [here]( http://www.figlet.org)
+- `Laminas\Text\Table` to create text based tables on the fly with different
   decorators. This can be helpful, if you either want to send structured data in
   text emails, which are used to have mono-spaced fonts, or to display table
-  information in a CLI application. `Zend\Text\Table` supports multi-line
+  information in a CLI application. `Laminas\Text\Table` supports multi-line
   columns, colspan and align as well.
 
 
-- File issues at https://github.com/zendframework/zend-text/issues
-- Documentation is at https://zendframework.github.io/zend-text/
+- File issues at https://github.com/laminas/laminas-text/issues
+- Documentation is at https://docs.laminas.dev/laminas-text/

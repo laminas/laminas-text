@@ -1,17 +1,16 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Table;
+namespace Laminas\Text\Table;
 
-use Zend\ServiceManager\Exception\InvalidServiceException;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\ServiceManager\AbstractPluginManager;
+use Laminas\ServiceManager\AbstractPluginManager;
+use Laminas\ServiceManager\Exception\InvalidServiceException;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 /**
  * Plugin manager implementation for text table decorators
@@ -34,6 +33,16 @@ class DecoratorManager extends AbstractPluginManager
         'Blank'   => Decorator\Blank::class,
         'unicode' => Decorator\Unicode::class,
         'Unicode' => Decorator\Unicode::class,
+
+        // Legacy Zend Framework aliases
+        \Zend\Text\Table\Decorator\Ascii::class => Decorator\Ascii::class,
+        \Zend\Text\Table\Decorator\Unicode::class => Decorator\Unicode::class,
+        \Zend\Text\Table\Decorator\Blank::class => Decorator\Blank::class,
+
+        // v2 normalized FQCNs
+        'zendtexttabledecoratorascii' => Decorator\Ascii::class,
+        'zendtexttabledecoratorblank' => Decorator\Blank::class,
+        'zendtexttabledecoratorunicode' => Decorator\Unicode::class,
     ];
 
 
@@ -41,9 +50,9 @@ class DecoratorManager extends AbstractPluginManager
         Decorator\Ascii::class          => InvokableFactory::class,
         Decorator\Unicode::class        => InvokableFactory::class,
         Decorator\Blank::class          => InvokableFactory::class,
-        'zendtexttabledecoratorascii'   => InvokableFactory::class,
-        'zendtexttabledecoratorblank'   => InvokableFactory::class,
-        'zendtexttabledecoratorunicode' => InvokableFactory::class,
+        'laminastexttabledecoratorascii'   => InvokableFactory::class,
+        'laminastexttabledecoratorblank'   => InvokableFactory::class,
+        'laminastexttabledecoratorunicode' => InvokableFactory::class,
     ];
 
     protected $instanceOf = Decorator\DecoratorInterface::class;
