@@ -1,22 +1,20 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- * @package   Zend_Text
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Text;
+namespace LaminasTest\Text;
 
-use Zend\Text;
+use Laminas\Text;
 
 /**
- * @category   Zend
- * @package    Zend_Text
+ * @category   Laminas
+ * @package    Laminas_Text
  * @subpackage UnitTests
- * @group      Zend_Text
+ * @group      Laminas_Text
  */
 class MultiByteTest extends \PHPUnit_Framework_TestCase
 {
@@ -235,12 +233,12 @@ class MultiByteTest extends \PHPUnit_Framework_TestCase
 
     public function testWordWrapInvalidArgument()
     {
-        $this->setExpectedException('Zend\Text\Exception\InvalidArgumentException', "Cannot force cut when width is zero");
+        $this->setExpectedException('Laminas\Text\Exception\InvalidArgumentException', "Cannot force cut when width is zero");
         Text\MultiByte::wordWrap('a', 0, "\n", true);
     }
 
     /**
-     * @group ZF-12186
+     * @group Laminas-12186
      */
     public function testPadInputLongerThanPadLength()
     {
@@ -249,7 +247,7 @@ class MultiByteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group ZF-12186
+     * @group Laminas-12186
      */
     public function testPadInputSameAsPadLength()
     {
@@ -258,7 +256,7 @@ class MultiByteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group ZF-12186
+     * @group Laminas-12186
      */
     public function testPadNegativePadLength()
     {
