@@ -1,17 +1,18 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-text for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-text/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Text;
+namespace LaminasTest\Text;
 
+use Laminas\Text\Figlet;
 use PHPUnit\Framework\TestCase;
-use Zend\Text\Figlet;
 
 /**
- * @group      Zend_Text
+ * @group      Laminas_Text
  */
 class FigletTest extends TestCase
 {
@@ -63,7 +64,7 @@ class FigletTest extends TestCase
     {
         $figlet = new Figlet\Figlet();
 
-        $this->expectException('Zend\Text\Figlet\Exception\InvalidArgumentException');
+        $this->expectException('Laminas\Text\Figlet\Exception\InvalidArgumentException');
         $this->expectExceptionMessage('must be a string');
         $figlet->render(1);
     }
@@ -89,7 +90,7 @@ class FigletTest extends TestCase
 
     public function testIncorrectEncoding()
     {
-        $this->expectException('Zend\Text\Figlet\Exception\UnexpectedValueException');
+        $this->expectException('Laminas\Text\Figlet\Exception\UnexpectedValueException');
         $this->expectExceptionMessage('text is not encoded with UTF-8');
         $isoText = iconv('UTF-8', 'ISO-8859-15', 'Ömläüt');
 
@@ -99,14 +100,14 @@ class FigletTest extends TestCase
 
     public function testNonExistentFont()
     {
-        $this->expectException('Zend\Text\Figlet\Exception\RuntimeException');
+        $this->expectException('Laminas\Text\Figlet\Exception\RuntimeException');
         $this->expectExceptionMessage('not found');
         $figlet = new Figlet\Figlet(['font' => __DIR__ . '/Figlet/NonExistentFont.flf']);
     }
 
     public function testInvalidFont()
     {
-        $this->expectException('Zend\Text\Figlet\Exception\UnexpectedValueException');
+        $this->expectException('Laminas\Text\Figlet\Exception\UnexpectedValueException');
         $this->expectExceptionMessage('Not a FIGlet');
         $figlet = new Figlet\Figlet(['font' => __DIR__ . '/Figlet/InvalidFont.flf']);
     }
@@ -119,7 +120,7 @@ class FigletTest extends TestCase
 
     public function testConfig()
     {
-        $config = new \Zend\Config\Config(['justification' => Figlet\Figlet::JUSTIFICATION_RIGHT]);
+        $config = new \Laminas\Config\Config(['justification' => Figlet\Figlet::JUSTIFICATION_RIGHT]);
         $figlet = new Figlet\Figlet($config);
 
         $this->_equalAgainstFile($figlet->render('Dummy'), 'StandardAlignRight.figlet');

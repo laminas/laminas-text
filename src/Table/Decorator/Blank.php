@@ -1,20 +1,21 @@
 <?php
+
 /**
- * @see       https://github.com/zendframework/zend-text for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-text/blob/master/LICENSE.md New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
-namespace Zend\Text\Table\Decorator;
+namespace Laminas\Text\Table\Decorator;
 
-use Zend\Text\Table\Decorator\DecoratorInterface as Decorator;
+use Laminas\Text\Table\Decorator\DecoratorInterface as Decorator;
 
 /**
- * ASCII Decorator for Zend\Text\Table
+ * ASCII Decorator for Laminas\Text\Table
  */
 class Blank implements Decorator
 {
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -24,7 +25,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -34,7 +35,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -44,7 +45,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -54,7 +55,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -64,7 +65,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -74,7 +75,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -84,7 +85,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -94,7 +95,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -104,7 +105,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
@@ -114,7 +115,7 @@ class Blank implements Decorator
     }
 
     /**
-     * Defined by Zend\Text\Table\Decorator\DecoratorInterface
+     * Defined by Laminas\Text\Table\Decorator\DecoratorInterface
      *
      * @return string
      */
