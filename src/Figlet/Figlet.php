@@ -1,21 +1,20 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-text for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Text\Figlet;
+namespace Laminas\Text\Figlet;
 
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Stdlib\ErrorHandler;
+use Laminas\Stdlib\StringUtils;
 use Traversable;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Stdlib\ErrorHandler;
-use Zend\Stdlib\StringUtils;
 
 /**
- * Zend\Text\Figlet is a PHP implementation of FIGlet
+ * Laminas\Text\Figlet is a PHP implementation of FIGlet
  */
 class Figlet
 {
@@ -145,7 +144,7 @@ class Figlet
      * Justification for the text, according to $outputWidth
      *
      * For using font default, this parameter should be null, else one of
-     * the values of Zend\Text\Figlet::JUSTIFICATION_*
+     * the values of Laminas\Text\Figlet::JUSTIFICATION_*
      *
      * @var int
      */
@@ -155,7 +154,7 @@ class Figlet
      * Direction of text-writing, namely right to left
      *
      * For using font default, this parameter should be null, else one of
-     * the values of Zend\Text\Figlet::DIRECTION_*
+     * the values of Laminas\Text\Figlet::DIRECTION_*
      *
      * @var int
      */
@@ -259,7 +258,7 @@ class Figlet
      * Instantiate the FIGlet with a specific font. If no font is given, the
      * standard font is used. You can also supply multiple options via
      * the $options variable, which can either be an array or an instance of
-     * Zend\Config\Config.
+     * Laminas\Config\Config.
      *
      * @param array|Traversable $options Options for the output
      */
@@ -275,7 +274,7 @@ class Figlet
 
         // If no font was defined, load default font
         if (!$this->fontLoaded) {
-            $this->_loadFont(__DIR__ . '/zend-framework.flf');
+            $this->_loadFont(__DIR__ . '/laminas-project.flf');
         }
     }
 
@@ -352,8 +351,8 @@ class Figlet
 
     /**
      * Set right to left mode. For writing from left to right, use
-     * Zend\Text\Figlet::DIRECTION_LEFT_TO_RIGHT. For writing from right to left,
-     * use Zend\Text\Figlet::DIRECTION_RIGHT_TO_LEFT.
+     * Laminas\Text\Figlet::DIRECTION_LEFT_TO_RIGHT. For writing from right to left,
+     * use Laminas\Text\Figlet::DIRECTION_RIGHT_TO_LEFT.
      *
      * @param  int $rightToLeft Right-to-left mode
      * @return Figlet
@@ -367,7 +366,7 @@ class Figlet
     /**
      * Set the smush mode.
      *
-     * Use one of the constants of Zend\Text\Figlet::SM_*, you may combine them.
+     * Use one of the constants of Laminas\Text\Figlet::SM_*, you may combine them.
      *
      * @param  int $smushMode Smush mode to use for generating text
      * @return Figlet
