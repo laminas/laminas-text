@@ -1,21 +1,22 @@
 {
-    "name": "zendframework/zend-text",
+    "name": "laminas/laminas-text",
     "description": " ",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf2",
+        "laminas",
         "text"
     ],
-    "homepage": "https://github.com/zendframework/zend-text",
-    "autoload": {
-        "psr-4": {
-            "Zend\\Text\\": "src/"
-        }
+    "homepage": "https://laminas.dev",
+    "support": {
+        "docs": "https://docs.laminas.dev/laminas-text/",
+        "issues": "https://github.com/laminas/laminas-text/issues",
+        "source": "https://github.com/laminas/laminas-text",
+        "rss": "https://github.com/laminas/laminas-text/releases.atom",
+        "chat": "https://laminas.dev/chat",
+        "forum": "https://discourse.laminas.dev"
     },
-    "require": {
-        "php": ">=5.3.3",
-        "zendframework/zend-stdlib": "self.version",
-        "zendframework/zend-servicemanager": "self.version"
+    "config": {
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {
@@ -23,14 +24,28 @@
             "dev-develop": "2.5-dev"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "ZendTest\\Text\\": "test/"
-        }
+    "require": {
+        "php": ">=5.3.3",
+        "laminas/laminas-servicemanager": "self.version",
+        "laminas/laminas-stdlib": "self.version",
+        "laminas/laminas-zendframework-bridge": "^1.0"
     },
     "require-dev": {
         "fabpot/php-cs-fixer": "1.7.*",
-        "satooshi/php-coveralls": "dev-master",
-        "phpunit/PHPUnit": "~4.0"
+        "phpunit/phpunit": "~4.0",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laminas\\Text\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaminasTest\\Text\\": "test/"
+        }
+    },
+    "replace": {
+        "zendframework/zend-text": "self.version"
     }
 }
