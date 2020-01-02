@@ -1,11 +1,11 @@
 docs_dir: docs/book
 site_dir: docs/html
 nav:
-    - { Home: index.md }
-    - { Figlets: figlet.md }
-    - { Tables: table.md }
+    - Home: index.md
+    - Figlets: figlet.md
+    - Tables: table.md
 site_name: laminas-text
-site_description: 'Create FIGlets and text-based tables'
+site_description: "Create FIGlets and text-based tables"
 repo_url: 'https://github.com/laminas/laminas-text'
 extra:
     project: Components
