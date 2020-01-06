@@ -1,6 +1,6 @@
 # laminas-text
 
-[![Build Status](https://travis-ci.org/laminas/laminas-text.svg?branch=master)](https://travis-ci.org/laminas/laminas-text)
+[![Build Status](https://travis-ci.com/laminas/laminas-text.svg?branch=master)](https://travis-ci.com/laminas/laminas-text)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-text/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-text?branch=master)
 
 `Laminas\Text` is a component to work on text strings. It contains the subcomponents:
