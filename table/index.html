@@ -317,12 +317,13 @@ the column object as a parameter. Alternately, provide a string to the
 <code>appendColumn()</code> method.</p>
 <p>To render the table, use the <code>render()</code> method, or rely on the
 <code>__toString()</code> implementation to do implicit casting</p>
-<pre class=codehilite><code class=language-php>echo $table;
+<pre class="highlight"><code class="language-php">echo $table;
 
 // or
 $tableString = (string) $table`;</code></pre>
+
 <h2 id="basic-usage">Basic Usage</h2>
-<pre class=codehilite><code class=language-php>$table = new Laminas\Text\Table\Table([
+<pre class="highlight"><code class="language-php">$table = new Laminas\Text\Table\Table([
     'columnWidths' =&gt; [10, 20]
 ]);
 
@@ -338,8 +339,9 @@ $row-&gt;appendColumn(new Laminas\Text\Table\Column('Framework'));
 $table-&gt;appendRow($row);
 
 echo $table;</code></pre>
+
 <p>The above results in the following output:</p>
-<pre class=codehilite><code class=language-text>┌──────────┬────────────────────┐
+<pre class="highlight"><code class="language-text">┌──────────┬────────────────────┐
 │Laminas      │Framework           │
 |──────────|────────────────────|
 │Laminas      │Framework           │
