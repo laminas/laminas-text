@@ -9,7 +9,6 @@
 namespace LaminasTest\Text;
 
 use Laminas\Text;
-use PHPUnit\Framework\Error\Deprecated;
 use PHPUnit\Framework\TestCase;
 
 /**
