@@ -7,6 +7,7 @@ FIGlets use a special font format, called FLT (FigLet Font). By default, one
 standard font is shipped with `Laminas\Text\Figlet`, but you can download
 additional fonts at [http://www.figlet.org](http://www.figlet.org).
 
+<!-- markdownlint-disable-next-line MD001 -->
 > ### Compressed Fonts
 >
 > `Laminas\Text\Figlet` supports gzipped fonts. This means that you can take an
@@ -63,10 +64,10 @@ echo $figlet->render('Laminas');
 Assuming you are using a monospace font, the above results in the following:
 
 ```text
-  __        ___     _    _     ______    _  _      ___       _____  
- | ||      / _ \\  | \  / ||  /_   _//  | \| ||   / _ \\    / ___// 
- | ||     / //\ \\ |  \/  ||   -| ||-   |  ' ||  / //\ \\   \___ \\ 
- | ||__  |  ___  ||| .  . ||   _| ||_   | .  || |  ___  ||  /    // 
- |____// |_||  |_|||_|\/|_||  /_____//  |_|\_|| |_||  |_|| /____//  
- `----`  `-`   `-` `-`  `-`   `-----`   `-` -`  `-`   `-` `-----`   
+  __        ___     _    _     ______    _  _      ___       _____
+ | ||      / _ \\  | \  / ||  /_   _//  | \| ||   / _ \\    / ___//
+ | ||     / //\ \\ |  \/  ||   -| ||-   |  ' ||  / //\ \\   \___ \\
+ | ||__  |  ___  ||| .  . ||   _| ||_   | .  || |  ___  ||  /    //
+ |____// |_||  |_|||_|\/|_||  /_____//  |_|\_|| |_||  |_|| /____//
+ `----`  `-`   `-` `-`  `-`   `-----`   `-` -`  `-`   `-` `-----`
 ```
