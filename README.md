@@ -1,7 +1,6 @@
 # laminas-text
 
-[![Build Status](https://travis-ci.com/laminas/laminas-text.svg?branch=master)](https://travis-ci.com/laminas/laminas-text)
-[![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-text/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-text?branch=master)
+[![Build Status](https://github.com/laminas/laminas-text/workflows/Continuous%20Integration/badge.svg)](https://github.com/laminas/laminas-text/actions?query=workflow%3A"Continuous+Integration")
 
 `Laminas\Text` is a component to work on text strings. It contains the subcomponents:
 
@@ -29,6 +28,6 @@ Browse the documentation online at https://docs.laminas.dev/laminas-text/
 
 ## Support
 
-* [Issues](https://github.com/laminas/laminas-text/issues/)
-* [Chat](https://laminas.dev/chat/)
-* [Forum](https://discourse.laminas.dev/)
+- [Issues](https://github.com/laminas/laminas-text/issues/)
+- [Chat](https://laminas.dev/chat/)
+- [Forum](https://discourse.laminas.dev/)

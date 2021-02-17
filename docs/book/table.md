@@ -5,6 +5,7 @@ decorators.  This can be helpful for sending structured data in text emails, or
 to display table information in a CLI application. `Laminas\Text\Table` supports
 multi-line columns, column spans, and alignment.
 
+<!-- markdownlint-disable-next-line MD001 -->
 > ### Encoding
 >
 > `Laminas\Text\Table` expects your strings to be UTF-8 encoded by default. If this
