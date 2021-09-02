@@ -8,6 +8,7 @@
 
 namespace LaminasTest\Text;
 
+use ArrayObject;
 use Laminas\Text\Figlet;
 use PHPUnit\Framework\TestCase;
 
@@ -118,9 +119,9 @@ class FigletTest extends TestCase
         $this->_equalAgainstFile($figlet->render('Dummy'), 'StandardAlignLeft.figlet');
     }
 
-    public function testConfig()
+    public function testArrayAccessConfig()
     {
-        $config = new \Laminas\Config\Config(['justification' => Figlet\Figlet::JUSTIFICATION_RIGHT]);
+        $config = new ArrayObject(['justification' => Figlet\Figlet::JUSTIFICATION_RIGHT]);
         $figlet = new Figlet\Figlet($config);
 
         $this->_equalAgainstFile($figlet->render('Dummy'), 'StandardAlignRight.figlet');
