@@ -263,12 +263,12 @@ standard font is shipped with <code>Laminas\Text\Figlet</code>, but you can down
 additional fonts at <a href="http://www.figlet.org">http://www.figlet.org</a>.</p>
 <!-- markdownlint-disable-next-line MD001 -->
 <blockquote>
-<h3>Compressed Fonts</h3>
+<h3 id="compressed-fonts">Compressed Fonts</h3>
 <p><code>Laminas\Text\Figlet</code> supports gzipped fonts. This means that you can take an
 <code>.flf</code> file and gzip it.  To allow <code>Laminas\Text\Figlet</code> to recognize this, the
 gzipped font must have the extension <code>.gz</code>.  Further, to be able to use
 gzipped fonts, you have to have enabled the PHP GZIP extension.</p>
-<h3>Encoding</h3>
+<h3 id="encoding">Encoding</h3>
 <p><code>Laminas\Text\Figlet</code> expects your strings to be UTF-8 encoded by default. If
 this is not the case, you can supply the character encoding to the second
 parameter to the <code>render()</code> method.</p>
@@ -344,16 +344,6 @@ echo $figlet-&gt;render('Laminas');</code></pre>
 </nav>
 
 
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/laminas/laminas-text/edit/master/docs/book/figlet.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
 
                 
             </div>
