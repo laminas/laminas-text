@@ -1,16 +1,18 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace Laminas\Text\Table;
 
 use Laminas\ServiceManager\AbstractPluginManager;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
 use Laminas\ServiceManager\Factory\InvokableFactory;
+use Zend\Text\Table\Decorator\Ascii;
+use Zend\Text\Table\Decorator\Blank;
+use Zend\Text\Table\Decorator\Unicode;
+
+use function gettype;
+use function sprintf;
 
 /**
  * Plugin manager implementation for text table decorators
@@ -35,26 +37,27 @@ class DecoratorManager extends AbstractPluginManager
         'Unicode' => Decorator\Unicode::class,
 
         // Legacy Zend Framework aliases
-        \Zend\Text\Table\Decorator\Ascii::class => Decorator\Ascii::class,
-        \Zend\Text\Table\Decorator\Unicode::class => Decorator\Unicode::class,
-        \Zend\Text\Table\Decorator\Blank::class => Decorator\Blank::class,
+        Ascii::class   => Decorator\Ascii::class,
+        Unicode::class => Decorator\Unicode::class,
+        Blank::class   => Decorator\Blank::class,
 
         // v2 normalized FQCNs
-        'zendtexttabledecoratorascii' => Decorator\Ascii::class,
-        'zendtexttabledecoratorblank' => Decorator\Blank::class,
+        'zendtexttabledecoratorascii'   => Decorator\Ascii::class,
+        'zendtexttabledecoratorblank'   => Decorator\Blank::class,
         'zendtexttabledecoratorunicode' => Decorator\Unicode::class,
     ];
 
-
+    /** @var array */
     protected $factories = [
-        Decorator\Ascii::class          => InvokableFactory::class,
-        Decorator\Unicode::class        => InvokableFactory::class,
-        Decorator\Blank::class          => InvokableFactory::class,
+        Decorator\Ascii::class             => InvokableFactory::class,
+        Decorator\Unicode::class           => InvokableFactory::class,
+        Decorator\Blank::class             => InvokableFactory::class,
         'laminastexttabledecoratorascii'   => InvokableFactory::class,
         'laminastexttabledecoratorblank'   => InvokableFactory::class,
         'laminastexttabledecoratorunicode' => InvokableFactory::class,
     ];
 
+    /** @var DecoratorInterface */
     protected $instanceOf = Decorator\DecoratorInterface::class;
 
     /**
@@ -69,7 +72,7 @@ class DecoratorManager extends AbstractPluginManager
 
         throw new InvalidServiceException(sprintf(
             'Plugin of type %s is invalid; must implement %s\Decorator\DecoratorInterface',
-            (is_object($instance) ? get_class($instance) : gettype($instance)),
+            gettype($instance),
             __NAMESPACE__
         ));
     }
@@ -81,7 +84,7 @@ class DecoratorManager extends AbstractPluginManager
      *
      * @param  mixed $plugin
      * @return void
-     * @throws Exception\InvalidDecoratorException if invalid
+     * @throws Exception\InvalidDecoratorException
      */
     public function validatePlugin($plugin)
     {

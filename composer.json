@@ -19,18 +19,21 @@
         "sort-packages": true,
         "platform": {
             "php": "8.0.99"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {
     },
     "require": {
         "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
-        "laminas/laminas-servicemanager": "^3.4",
-        "laminas/laminas-stdlib": "^3.6"
+        "laminas/laminas-servicemanager": "^3.19.0",
+        "laminas/laminas-stdlib": "^3.7.1"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "~1.0.0",
-        "phpunit/phpunit": "^9.3"
+        "laminas/laminas-coding-standard": "~2.4.0",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {

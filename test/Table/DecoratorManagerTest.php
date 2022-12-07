@@ -1,10 +1,6 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace LaminasTest\Text\Table;
 
@@ -19,16 +15,19 @@ class DecoratorManagerTest extends TestCase
 {
     use CommonPluginManagerTrait;
 
+    /** @return DecoratorManager */
     protected function getPluginManager()
     {
         return new DecoratorManager(new ServiceManager());
     }
 
+    /** @return InvalidDecoratorException */
     protected function getV2InvalidPluginException()
     {
         return InvalidDecoratorException::class;
     }
 
+    /** @return DecoratorInterface */
     protected function getInstanceOf()
     {
         return DecoratorInterface::class;

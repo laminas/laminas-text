@@ -1,14 +1,17 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace Laminas\Text;
 
+use Laminas\Stdlib\Exception\InvalidArgumentException;
 use Laminas\Stdlib\StringUtils;
+
+use function sprintf;
+use function trigger_error;
+
+use const E_USER_DEPRECATED;
+use const STR_PAD_RIGHT;
 
 /**
  * Contains multibyte safe string methods
@@ -16,16 +19,13 @@ use Laminas\Stdlib\StringUtils;
 class MultiByte
 {
     /**
-     * Word wrap
-     *
-     * @param  string  $string
-     * @param  int $width
+     * @param  string  $string string
+     * @param  int     $width
      * @param  string  $break
      * @param  bool $cut
      * @param  string  $charset
      * @throws Exception\InvalidArgumentException
      * @return string
-     * @deprecated Please use Laminas\Stdlib\StringUtils instead
      */
     public static function wordWrap($string, $width = 75, $break = "\n", $cut = false, $charset = 'utf-8')
     {
@@ -36,7 +36,7 @@ class MultiByte
 
         try {
             return StringUtils::getWrapper($charset)->wordWrap($string, $width, $break, $cut);
-        } catch (\Laminas\Stdlib\Exception\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             throw new Exception\InvalidArgumentException($e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -50,7 +50,6 @@ class MultiByte
      * @param  int $padType
      * @param  string  $charset
      * @return string
-     * @deprecated Please use Laminas\Stdlib\StringUtils instead
      */
     public static function strPad($input, $padLength, $padString = ' ', $padType = STR_PAD_RIGHT, $charset = 'utf-8')
     {

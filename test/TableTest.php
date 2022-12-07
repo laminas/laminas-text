@@ -1,17 +1,23 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace LaminasTest\Text;
 
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Text\Table;
+use Laminas\Text\Table\Column;
 use Laminas\Text\Table\Decorator;
+use Laminas\Text\Table\Exception\InvalidArgumentException;
+use Laminas\Text\Table\Exception\OutOfBoundsException;
+use Laminas\Text\Table\Exception\OverflowException;
+use Laminas\Text\Table\Exception\UnexpectedValueException;
 use PHPUnit\Framework\TestCase;
+
+use function count;
+use function iconv;
+
+use const PHP_OS;
 
 /**
  * @group      Laminas_Text
@@ -68,7 +74,7 @@ class TableTest extends TestCase
 
     public function testColumnForcedEncoding()
     {
-        if (PHP_OS == 'AIX') {
+        if (PHP_OS === 'AIX') {
             // AIX cannot handle these charsets
             $this->markTestSkipped('Test case cannot run on AIX');
         }
@@ -82,7 +88,7 @@ class TableTest extends TestCase
 
     public function testColumnDefaultInputEncoding()
     {
-        if (PHP_OS == 'AIX') {
+        if (PHP_OS === 'AIX') {
             // AIX cannot handle these charsets
             $this->markTestSkipped('Test case cannot run on AIX');
         }
@@ -97,7 +103,7 @@ class TableTest extends TestCase
 
     public function testColumnDefaultOutputEncoding()
     {
-        if (PHP_OS == 'AIX') {
+        if (PHP_OS === 'AIX') {
             // AIX cannot handle these charsets
             $this->markTestSkipped('Test case cannot run on AIX');
         }
@@ -112,21 +118,21 @@ class TableTest extends TestCase
 
     public function testColumnSetContentInvalidArgument()
     {
-        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('must be a string');
         $column = new Table\Column(1);
     }
 
     public function testColumnSetAlignInvalidArgument()
     {
-        $this->expectException('Laminas\Text\Table\Exception\OutOfBoundsException');
+        $this->expectException(OutOfBoundsException::class);
         $this->expectExceptionMessage('Invalid align supplied');
         $column = new Table\Column(null, false);
     }
 
     public function testColumnSetColSpanInvalidArgument()
     {
-        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('must be an integer and greater than 0');
         $column = new Table\Column(null, null, 0);
     }
@@ -135,7 +141,7 @@ class TableTest extends TestCase
     {
         $column = new Table\Column();
 
-        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('must be an integer and greater than 0');
         $column->render(0);
     }
@@ -181,7 +187,7 @@ class TableTest extends TestCase
         $row->appendColumn(new Table\Column());
         $row->appendColumn(new Table\Column());
 
-        $this->expectException('Laminas\Text\Table\Exception\OverflowException');
+        $this->expectException(OverflowException::class);
         $this->expectExceptionMessage('Too many columns');
         $row->render([10], $decorator);
     }
@@ -190,7 +196,7 @@ class TableTest extends TestCase
     {
         $row = new Table\Row();
 
-        $this->expectException('Laminas\Text\Table\Exception\UnexpectedValueException');
+        $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage('render() must be called');
         $row->getColumnWidths();
     }
@@ -235,7 +241,7 @@ class TableTest extends TestCase
 
     public function testTableConstructInvalidColumnWidthsItem()
     {
-        $this->expectException('Laminas\Text\Table\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('invalid column width');
         $table = new Table\Table(['columnWidths' => ['foo']]);
     }
@@ -317,7 +323,7 @@ class TableTest extends TestCase
         $row = new Table\Row();
         $row->createColumn('foo');
 
-        $this->assertInstanceOf('Laminas\Text\Table\Column', $row->getColumn(0));
+        $this->assertInstanceOf(Column::class, $row->getColumn(0));
     }
 
     public function testRowGetInvalidColumn()
@@ -332,7 +338,7 @@ class TableTest extends TestCase
     {
         $table = new Table\Table(['columnWidths' => [10]]);
 
-        $this->expectException('Laminas\Text\Table\Exception\UnexpectedValueException');
+        $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage('No rows were added');
         $table->render();
     }
@@ -453,7 +459,7 @@ class TableTest extends TestCase
     public function testDecoratorBlank()
     {
         $decoratorManager = new Table\DecoratorManager(new ServiceManager());
-        $decorator = $decoratorManager->get('blank');
+        $decorator        = $decoratorManager->get('blank');
 
         $chars = $decorator->getBottomLeft()
                . $decorator->getBottomRight()

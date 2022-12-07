@@ -1,16 +1,20 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
 namespace LaminasTest\Text;
 
 use ArrayObject;
 use Laminas\Text\Figlet;
+use Laminas\Text\Figlet\Exception\InvalidArgumentException;
+use Laminas\Text\Figlet\Exception\RuntimeException;
+use Laminas\Text\Figlet\Exception\UnexpectedValueException;
 use PHPUnit\Framework\TestCase;
+
+use function file_get_contents;
+use function iconv;
+
+use const PHP_OS;
 
 /**
  * @group      Laminas_Text
@@ -40,16 +44,20 @@ class FigletTest extends TestCase
 
     public function testStandardRightToLeftAlignLeft()
     {
-        $figlet = new Figlet\Figlet(['justification' => Figlet\Figlet::JUSTIFICATION_LEFT,
-                                             'rightToLeft'   => Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT]);
+        $figlet = new Figlet\Figlet([
+            'justification' => Figlet\Figlet::JUSTIFICATION_LEFT,
+            'rightToLeft'   => Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT,
+        ]);
 
         $this->_equalAgainstFile($figlet->render('Dummy'), 'StandardRightToLeftAlignLeft.figlet');
     }
 
     public function testStandardRightToLeftAlignCenter()
     {
-        $figlet = new Figlet\Figlet(['justification' => Figlet\Figlet::JUSTIFICATION_CENTER,
-                                             'rightToLeft'   => Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT]);
+        $figlet = new Figlet\Figlet([
+            'justification' => Figlet\Figlet::JUSTIFICATION_CENTER,
+            'rightToLeft'   => Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT,
+        ]);
 
         $this->_equalAgainstFile($figlet->render('Dummy'), 'StandardRightToLeftAlignCenter.figlet');
     }
@@ -65,7 +73,7 @@ class FigletTest extends TestCase
     {
         $figlet = new Figlet\Figlet();
 
-        $this->expectException('Laminas\Text\Figlet\Exception\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('must be a string');
         $figlet->render(1);
     }
@@ -79,7 +87,7 @@ class FigletTest extends TestCase
 
     public function testCorrectEncodingISO885915()
     {
-        if (PHP_OS == 'AIX') {
+        if (PHP_OS === 'AIX') {
             $this->markTestSkipped('Test case cannot run on AIX');
         }
 
@@ -91,24 +99,24 @@ class FigletTest extends TestCase
 
     public function testIncorrectEncoding()
     {
-        $this->expectException('Laminas\Text\Figlet\Exception\UnexpectedValueException');
+        $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage('text is not encoded with UTF-8');
         $isoText = iconv('UTF-8', 'ISO-8859-15', 'Ömläüt');
 
-        $figlet  = new Figlet\Figlet();
+        $figlet = new Figlet\Figlet();
         $figlet->render($isoText);
     }
 
     public function testNonExistentFont()
     {
-        $this->expectException('Laminas\Text\Figlet\Exception\RuntimeException');
+        $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('not found');
         $figlet = new Figlet\Figlet(['font' => __DIR__ . '/Figlet/NonExistentFont.flf']);
     }
 
     public function testInvalidFont()
     {
-        $this->expectException('Laminas\Text\Figlet\Exception\UnexpectedValueException');
+        $this->expectException(UnexpectedValueException::class);
         $this->expectExceptionMessage('Not a FIGlet');
         $figlet = new Figlet\Figlet(['font' => __DIR__ . '/Figlet/InvalidFont.flf']);
     }
@@ -129,8 +137,10 @@ class FigletTest extends TestCase
 
     public function testOutputWidth()
     {
-        $figlet = new Figlet\Figlet(['outputWidth'   => 50,
-                                             'justification' => Figlet\Figlet::JUSTIFICATION_RIGHT]);
+        $figlet = new Figlet\Figlet([
+            'outputWidth'   => 50,
+            'justification' => Figlet\Figlet::JUSTIFICATION_RIGHT,
+        ]);
 
         $this->_equalAgainstFile($figlet->render('Dummy'), 'OutputWidth50AlignRight.figlet');
     }
@@ -144,8 +154,10 @@ class FigletTest extends TestCase
 
     public function testSmushModeRemovedRightToLeft()
     {
-        $figlet = new Figlet\Figlet(['smushMode'     => -1,
-                                             'rightToLeft'   => Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT]);
+        $figlet = new Figlet\Figlet([
+            'smushMode'   => -1,
+            'rightToLeft' => Figlet\Figlet::DIRECTION_RIGHT_TO_LEFT,
+        ]);
 
         $this->_equalAgainstFile($figlet->render('Dummy'), 'NoSmushRightToLeft.figlet');
     }

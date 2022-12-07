@@ -1,11 +1,9 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
 
-if (! class_exists(\PHPUnit\Framework\Error\Deprecated::class)) {
-    class_alias(\PHPUnit_Framework_Error_Deprecated::class, \PHPUnit\Framework\Error\Deprecated::class);
+use PHPUnit\Framework\Error\Deprecated;
+
+if (! class_exists(Deprecated::class)) {
+    class_alias(PHPUnit_Framework_Error_Deprecated::class, Deprecated::class);
 }
