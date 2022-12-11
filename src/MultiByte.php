@@ -24,6 +24,7 @@ class MultiByte
      * @param  string  $charset
      * @throws Exception\InvalidArgumentException
      * @return string
+     * @deprecated Please use {@see \Laminas\Stdlib\StringUtils} instead
      */
     public static function wordWrap($string, $width = 75, $break = "\n", $cut = false, $charset = 'utf-8')
     {
@@ -48,6 +49,7 @@ class MultiByte
      * @param  int $padType
      * @param  string  $charset
      * @return string
+     * @deprecated Please use {@see \Laminas\Stdlib\StringUtils} instead
      */
     public static function strPad($input, $padLength, $padString = ' ', $padType = STR_PAD_RIGHT, $charset = 'utf-8')
     {
