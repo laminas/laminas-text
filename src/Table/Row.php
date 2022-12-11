@@ -27,27 +27,27 @@ class Row
     /**
      * Temporary stored column widths
      *
-     * @var array
+     * @var array|null
      */
     protected $columnWidths;
 
     /**
      * Create a new column and append it to the row
      *
-     * @param  string $content
-     * @param  array|null  $options
+     * @param string                                                                      $content
+     * @param array{align?: string|null, colSpan?: int|null, encoding?: string|null}|null $options
      * @return Row
      */
-    public function createColumn($content, $options = null)
+    public function createColumn($content, ?array $options = null)
     {
         $align    = null;
         $colSpan  = null;
         $encoding = null;
 
         if ($options !== null) {
-            $align    = $options['align'];
-            $colSpan  = $options['colSpan'];
-            $encoding = $options['encoding'];
+            $align    = $options['align'] ?? null;
+            $colSpan  = $options['colSpan'] ?? null;
+            $encoding = $options['encoding'] ?? null;
         }
 
         $column = new Column($content, $align, $colSpan, $encoding);
@@ -100,7 +100,7 @@ class Row
     /**
      * Get the widths of all columns, which were rendered last
      *
-     * @throws Exception\UnexpectedValueException
+     * @throws Exception\UnexpectedValueException When no columns were rendered yet.
      * @return int
      */
     public function getColumnWidths()
@@ -120,7 +120,7 @@ class Row
      * @param  array                               $columnWidths Width of all columns
      * @param  Decorator $decorator    Decorator for the row borders
      * @param  int                             $padding      Padding for the columns
-     * @throws Exception\OverflowException
+     * @throws Exception\OverflowException When there are too many columns.
      * @return string
      */
     public function render(array $columnWidths, Decorator $decorator, $padding = 0)
