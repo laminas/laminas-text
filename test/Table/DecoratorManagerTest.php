@@ -15,20 +15,19 @@ class DecoratorManagerTest extends TestCase
 {
     use CommonPluginManagerTrait;
 
-    /** @return DecoratorManager */
-    protected function getPluginManager()
+    protected function getPluginManager(): DecoratorManager
     {
         return new DecoratorManager(new ServiceManager());
     }
 
-    /** @return InvalidDecoratorException */
-    protected function getV2InvalidPluginException()
+    /** @return class-string<InvalidDecoratorException> */
+    protected function getV2InvalidPluginException(): string
     {
         return InvalidDecoratorException::class;
     }
 
-    /** @return DecoratorInterface */
-    protected function getInstanceOf()
+    /** @return class-string<DecoratorInterface> */
+    protected function getInstanceOf(): string
     {
         return DecoratorInterface::class;
     }
