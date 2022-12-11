@@ -89,7 +89,7 @@ class Column
      *
      * @param  string $content  Content of the column
      * @param  string $charset  The charset of the content
-     * @throws Exception\InvalidArgumentException
+     * @throws Exception\InvalidArgumentException When $content is not a string.
      * @return Column
      */
     public function setContent($content, $charset = null)
@@ -123,7 +123,7 @@ class Column
      * Set the align
      *
      * @param  string $align Align of the column
-     * @throws Exception\OutOfBoundsException
+     * @throws Exception\OutOfBoundsException When supplied align is invalid.
      * @return Column
      */
     public function setAlign($align)
@@ -141,7 +141,7 @@ class Column
      * Set the colspan
      *
      * @param  int $colSpan
-     * @throws Exception\InvalidArgumentException
+     * @throws Exception\InvalidArgumentException When $colSpan is smaller than 1.
      * @return Column
      */
     public function setColSpan($colSpan)
@@ -170,8 +170,8 @@ class Column
      *
      * @param  int $columnWidth The width of the column
      * @param  int $padding     The padding for the column
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\OutOfBoundsException
+     * @throws Exception\InvalidArgumentException When $columnWidth is lower than 1.
+     * @throws Exception\OutOfBoundsException When padding is greater than columnWidth.
      * @return string
      */
     public function render($columnWidth, $padding = 0)
