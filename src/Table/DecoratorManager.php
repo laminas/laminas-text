@@ -9,7 +9,7 @@ use Zend\Text\Table\Decorator\Ascii;
 use Zend\Text\Table\Decorator\Blank;
 use Zend\Text\Table\Decorator\Unicode;
 
-use function gettype;
+use function get_debug_type;
 use function sprintf;
 
 /**
@@ -70,7 +70,7 @@ class DecoratorManager extends AbstractPluginManager
 
         throw new InvalidServiceException(sprintf(
             'Plugin of type %s is invalid; must implement %s\Decorator\DecoratorInterface',
-            gettype($instance),
+            get_debug_type($instance),
             __NAMESPACE__
         ));
     }
