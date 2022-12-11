@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.1.0@4defa177c89397c5e14737a80fe4896584130674">
   <file src="src/Figlet/Figlet.php">
-    <DocblockTypeContradiction occurrences="6">
+    <DocblockTypeContradiction occurrences="3">
       <code>$char === false</code>
       <code>$char === false</code>
-      <code>$this-&gt;currentChar === null</code>
-      <code>$this-&gt;justification === null</code>
-      <code>$this-&gt;rightToLeft === null</code>
       <code>is_string($text)</code>
     </DocblockTypeContradiction>
     <FalsableReturnStatement occurrences="1">
@@ -88,7 +85,7 @@
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="2">
       <code>$this-&gt;charList[$uniCode]</code>
-      <code>$this-&gt;inCharLine[($lastSpace + 1 + $i)]</code>
+      <code>$this-&gt;inCharLine[$lastSpace + 1 + $i]</code>
     </MixedArrayOffset>
     <MixedAssignment occurrences="11">
       <code>$lastLength</code>
@@ -147,20 +144,23 @@
       <code>max(1, $this-&gt;charHeight)</code>
       <code>max(1, $this-&gt;maxLength)</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument occurrences="1">
+    <PossiblyNullArgument occurrences="5">
       <code>$leftChar</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$row]</code>
     </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="3">
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$row]</code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullOperand occurrences="3">
       <code>$smush</code>
       <code>$this-&gt;maxLength</code>
       <code>$this-&gt;rightToLeft</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="4">
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
     <PossiblyUndefinedVariable occurrences="2">
       <code>$lastSpace</code>
       <code>$lastSpace</code>
@@ -241,38 +241,22 @@
     </InvalidFalsableReturnType>
   </file>
   <file src="src/Table/DecoratorManager.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>gettype($instance)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$plugin</code>
-    </MixedArgument>
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$aliases</code>
     </NonInvariantDocblockPropertyType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>is_object($instance)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Table/Row.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$this-&gt;columnWidths === null</code>
-    </DocblockTypeContradiction>
     <InvalidReturnStatement occurrences="1">
       <code>$this-&gt;columnWidths</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>int</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="10">
-      <code>$align</code>
+    <MixedArgument occurrences="6">
       <code>$colNum</code>
       <code>$colNum</code>
-      <code>$colSpan</code>
       <code>$colSpan</code>
       <code>$column-&gt;render($columnWidth, $padding)</code>
-      <code>$content</code>
-      <code>$encoding</code>
       <code>$remainingWidth</code>
       <code>$this-&gt;columnWidths[$index]</code>
     </MixedArgument>
@@ -300,16 +284,12 @@
     <MixedReturnStatement occurrences="1">
       <code>$this-&gt;columns[$index]</code>
     </MixedReturnStatement>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Table/Table.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$this-&gt;decorator === null</code>
-    </DocblockTypeContradiction>
-    <InvalidOperand occurrences="2">
-      <code>$columnNum</code>
+    <InvalidNullableReturnType occurrences="1">
+      <code>DecoratorManager</code>
+    </InvalidNullableReturnType>
+    <InvalidOperand occurrences="1">
       <code>$rowNum</code>
     </InvalidOperand>
     <MissingReturnType occurrences="2">
@@ -332,9 +312,10 @@
       <code>$columnWidths[$currentLowerColumn]</code>
       <code>$lastColumnWidths[$currentUpperColumn]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="18">
+    <MixedAssignment occurrences="19">
       <code>$align</code>
       <code>$columnData</code>
+      <code>$columnNum</code>
       <code>$columnNum</code>
       <code>$columnNum</code>
       <code>$columnWidth</code>
@@ -356,7 +337,8 @@
       <code>getColumnWidths</code>
       <code>render</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="7">
+    <MixedOperand occurrences="8">
+      <code>$columnNum</code>
       <code>$columnNum</code>
       <code>$columnNum</code>
       <code>$columnWidth</code>
@@ -365,11 +347,19 @@
       <code>$currentUpperWidth</code>
       <code>$renderedRow</code>
     </MixedOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>null</code>
-      <code>null</code>
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;decoratorManager</code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;columnWidths</code>
+      <code>$this-&gt;columnWidths</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;columnWidths</code>
+    </PossiblyNullIterator>
+    <PossiblyNullReference occurrences="1">
+      <code>getHorizontal</code>
+    </PossiblyNullReference>
     <PossiblyUndefinedVariable occurrences="1">
       <code>$lastColumnWidths</code>
     </PossiblyUndefinedVariable>
@@ -377,17 +367,8 @@
       <code>(int) $autoSeparate</code>
       <code>(int) $padding</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$this-&gt;decoratorManager instanceof DecoratorManager</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/FigletTest.php">
-    <ArgumentTypeCoercion occurrences="4">
-      <code>'Laminas\Text\Figlet\Exception\InvalidArgumentException'</code>
-      <code>'Laminas\Text\Figlet\Exception\RuntimeException'</code>
-      <code>'Laminas\Text\Figlet\Exception\UnexpectedValueException'</code>
-      <code>'Laminas\Text\Figlet\Exception\UnexpectedValueException'</code>
-    </ArgumentTypeCoercion>
     <InvalidArgument occurrences="1">
       <code>1</code>
     </InvalidArgument>
@@ -449,17 +430,6 @@
     </UnusedVariable>
   </file>
   <file src="test/TableTest.php">
-    <ArgumentTypeCoercion occurrences="9">
-      <code>'Laminas\Text\Table\Column'</code>
-      <code>'Laminas\Text\Table\Exception\InvalidArgumentException'</code>
-      <code>'Laminas\Text\Table\Exception\InvalidArgumentException'</code>
-      <code>'Laminas\Text\Table\Exception\InvalidArgumentException'</code>
-      <code>'Laminas\Text\Table\Exception\InvalidArgumentException'</code>
-      <code>'Laminas\Text\Table\Exception\OutOfBoundsException'</code>
-      <code>'Laminas\Text\Table\Exception\OverflowException'</code>
-      <code>'Laminas\Text\Table\Exception\UnexpectedValueException'</code>
-      <code>'Laminas\Text\Table\Exception\UnexpectedValueException'</code>
-    </ArgumentTypeCoercion>
     <InvalidArgument occurrences="2">
       <code>1</code>
       <code>false</code>
@@ -537,13 +507,5 @@
       <code>$column</code>
       <code>$table</code>
     </UnusedVariable>
-  </file>
-  <file src="test/autoload.php">
-    <MixedArgument occurrences="1">
-      <code>\PHPUnit_Framework_Error_Deprecated::class</code>
-    </MixedArgument>
-    <UndefinedClass occurrences="1">
-      <code>\PHPUnit_Framework_Error_Deprecated</code>
-    </UndefinedClass>
   </file>
 </files>
