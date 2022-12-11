@@ -176,7 +176,7 @@ class Figlet
      * For using font default, this parameter should be null, else one of
      * the values of Laminas\Text\Figlet::JUSTIFICATION_*
      *
-     * @var int
+     * @var int|null
      */
     protected $justification;
 
@@ -186,7 +186,7 @@ class Figlet
      * For using font default, this parameter should be null, else one of
      * the values of Laminas\Text\Figlet::DIRECTION_*
      *
-     * @var int
+     * @var int|null
      */
     protected $rightToLeft;
 
@@ -256,7 +256,7 @@ class Figlet
     /**
      * Current char
      *
-     * @var array
+     * @var array|null
      */
     protected $currentChar;
 
@@ -429,8 +429,8 @@ class Figlet
      *
      * @param  string $text     Text to convert to a figlet text
      * @param  string $encoding Encoding of the input string
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\UnexpectedValueException
+     * @throws Exception\InvalidArgumentException When $text is not a string.
+     * @throws Exception\UnexpectedValueException When $text it not properly encoded.
      * @return string
      */
     public function render($text, $encoding = 'UTF-8')
