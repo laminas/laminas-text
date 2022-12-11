@@ -37,14 +37,14 @@ class Table
     /**
      * Decorator used for the table borders
      *
-     * @var Decorator
+     * @var Decorator|null
      */
     protected $decorator;
 
     /**
      * List of all column widths
      *
-     * @var array
+     * @var array|null
      */
     protected $columnWidths;
 
@@ -79,7 +79,7 @@ class Table
     /**
      * Plugin loader for decorators
      *
-     * @var DecoratorManager
+     * @var DecoratorManager|null
      */
     protected $decoratorManager;
 
@@ -112,7 +112,7 @@ class Table
      * Create a basic table object
      *
      * @param  array|Traversable $options Configuration options
-     * @throws Exception\UnexpectedValueException
+     * @throws Exception\UnexpectedValueException When no columns widths were set.
      */
     public function __construct($options = null)
     {
@@ -160,8 +160,8 @@ class Table
      * Set column widths
      *
      * @param  array $columnWidths Widths of all columns
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\InvalidArgumentException
+     * @throws Exception\InvalidArgumentException When no columns were supplied.
+     * @throws Exception\InvalidArgumentException When a column has an invalid width.
      * @return Table
      */
     public function setColumnWidths(array $columnWidths)
@@ -306,8 +306,8 @@ class Table
      * Append a row to the table
      *
      * @param  array|Row $row The row to append to the table
-     * @throws Exception\InvalidArgumentException
-     * @throws Exception\OverflowException
+     * @throws Exception\InvalidArgumentException When $row is neither an array nor {@see Row}
+     * @throws Exception\OverflowException When a row contains too many columns.
      * @return Table
      */
     public function appendRow($row)
@@ -344,7 +344,7 @@ class Table
     /**
      * Render the table
      *
-     * @throws Exception\UnexpectedValueException
+     * @throws Exception\UnexpectedValueException When no rows were added to the table.
      * @return string
      */
     public function render()
