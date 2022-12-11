@@ -1,17 +1,25 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
-
 namespace Laminas\Text\Table;
 
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Stdlib\ArrayUtils;
 use Laminas\Text\Table\Decorator\DecoratorInterface as Decorator;
+use Laminas\Text\Table\Exception;
 use Traversable;
+
+use function count;
+use function in_array;
+use function is_array;
+use function is_int;
+use function max;
+use function method_exists;
+use function str_repeat;
+use function strtolower;
+use function trigger_error;
+use function ucfirst;
+
+use const E_USER_ERROR;
 
 /**
  * Laminas\Text\Table\Table enables developers to create tables out of characters
@@ -21,24 +29,24 @@ class Table
     /**
      * Auto separator settings
      */
-    const AUTO_SEPARATE_NONE   = 0x0;
-    const AUTO_SEPARATE_HEADER = 0x1;
-    const AUTO_SEPARATE_FOOTER = 0x2;
-    const AUTO_SEPARATE_ALL    = 0x4;
+    public const AUTO_SEPARATE_NONE   = 0x0;
+    public const AUTO_SEPARATE_HEADER = 0x1;
+    public const AUTO_SEPARATE_FOOTER = 0x2;
+    public const AUTO_SEPARATE_ALL    = 0x4;
 
     /**
      * Decorator used for the table borders
      *
-     * @var Decorator
+     * @var Decorator|null
      */
-    protected $decorator = null;
+    protected $decorator;
 
     /**
      * List of all column widths
      *
-     * @var array
+     * @var array|null
      */
-    protected $columnWidths = null;
+    protected $columnWidths;
 
     /**
      * Rows of the table
@@ -71,9 +79,9 @@ class Table
     /**
      * Plugin loader for decorators
      *
-     * @var DecoratorManager
+     * @var DecoratorManager|null
      */
-    protected $decoratorManager = null;
+    protected $decoratorManager;
 
     /**
      * Charset which is used for input by default
@@ -104,7 +112,7 @@ class Table
      * Create a basic table object
      *
      * @param  array|Traversable $options Configuration options
-     * @throws Exception\UnexpectedValueException When no columns widths were set
+     * @throws Exception\UnexpectedValueException When no columns widths were set.
      */
     public function __construct($options = null)
     {
@@ -152,8 +160,8 @@ class Table
      * Set column widths
      *
      * @param  array $columnWidths Widths of all columns
-     * @throws Exception\InvalidArgumentException When no columns were supplied
-     * @throws Exception\InvalidArgumentException When a column has an invalid width
+     * @throws Exception\InvalidArgumentException When no columns were supplied.
+     * @throws Exception\InvalidArgumentException When a column has an invalid width.
      * @return Table
      */
     public function setColumnWidths(array $columnWidths)
@@ -163,7 +171,7 @@ class Table
         }
 
         foreach ($columnWidths as $columnNum => $columnWidth) {
-            if (is_int($columnWidth) === false or $columnWidth < 1) {
+            if (is_int($columnWidth) === false || $columnWidth < 1) {
                 throw new Exception\InvalidArgumentException('Column ' . $columnNum . ' has an invalid column width');
             }
         }
@@ -232,7 +240,6 @@ class Table
     /**
      * Set the plugin manager instance for decorators
      *
-     * @param  DecoratorManager $decoratorManager
      * @return Table
      */
     public function setDecoratorManager(DecoratorManager $decoratorManager)
@@ -299,13 +306,13 @@ class Table
      * Append a row to the table
      *
      * @param  array|Row $row The row to append to the table
-     * @throws Exception\InvalidArgumentException When $row is neither an array nor Laminas\Text\Table\Row
-     * @throws Exception\OverflowException When a row contains too many columns
+     * @throws Exception\InvalidArgumentException When $row is neither an array nor {@see Row}.
+     * @throws Exception\OverflowException When a row contains too many columns.
      * @return Table
      */
     public function appendRow($row)
     {
-        if (! is_array($row) && ! ($row instanceof Row)) {
+        if (! is_array($row) && ! $row instanceof Row) {
             throw new Exception\InvalidArgumentException('$row must be an array or instance of Laminas\Text\Table\Row');
         }
 
@@ -337,7 +344,7 @@ class Table
     /**
      * Render the table
      *
-     * @throws Exception\UnexpectedValueException When no rows were added to the table
+     * @throws Exception\UnexpectedValueException When no rows were added to the table.
      * @return string
      */
     public function render()

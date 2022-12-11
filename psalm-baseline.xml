@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.1.0@4defa177c89397c5e14737a80fe4896584130674">
+  <file src="src/Figlet/Figlet.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>$char === false</code>
+      <code>$char === false</code>
+      <code>is_string($text)</code>
+    </DocblockTypeContradiction>
+    <FalsableReturnStatement occurrences="1">
+      <code>false</code>
+    </FalsableReturnStatement>
+    <InvalidArrayOffset occurrences="4">
+      <code>$firstPart[$i]</code>
+      <code>$firstPart[$i]</code>
+      <code>$lastPart[$i]</code>
+      <code>$lastPart[$i]</code>
+    </InvalidArrayOffset>
+    <InvalidFalsableReturnType occurrences="1">
+      <code>array</code>
+    </InvalidFalsableReturnType>
+    <InvalidLiteralArgument occurrences="20">
+      <code>'()'</code>
+      <code>'()'</code>
+      <code>'()&lt;&gt;'</code>
+      <code>'()&lt;&gt;'</code>
+      <code>'/\\'</code>
+      <code>'/\\'</code>
+      <code>'/\\[]{}()&lt;&gt;'</code>
+      <code>'/\\[]{}()&lt;&gt;'</code>
+      <code>'&lt;&gt;'</code>
+      <code>'&lt;&gt;'</code>
+      <code>'[]'</code>
+      <code>'[]'</code>
+      <code>'[]{}()&lt;&gt;'</code>
+      <code>'[]{}()&lt;&gt;'</code>
+      <code>'{}'</code>
+      <code>'{}'</code>
+      <code>'{}()&lt;&gt;'</code>
+      <code>'{}()&lt;&gt;'</code>
+      <code>'|/\\[]{}()&lt;&gt;'</code>
+      <code>'|/\\[]{}()&lt;&gt;'</code>
+    </InvalidLiteralArgument>
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;charList</code>
+    </InvalidPropertyAssignmentValue>
+    <MixedArgument occurrences="16">
+      <code>$firstPart[$i]</code>
+      <code>$lastPart[$i]</code>
+      <code>$leftChar</code>
+      <code>$tempLine[$position]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$row]</code>
+      <code>$this-&gt;currentChar[$row]</code>
+      <code>$this-&gt;currentChar[$row][$k]</code>
+      <code>$this-&gt;currentChar[0]</code>
+      <code>$this-&gt;outputLine[$i]</code>
+      <code>$this-&gt;outputLine[$row]</code>
+      <code>$this-&gt;outputLine[$row]</code>
+      <code>$this-&gt;outputLine[$row][$k]</code>
+      <code>$this-&gt;outputLine[0]</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>$char</code>
+      <code>$key</code>
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="8">
+      <code>$tempLine[$position]</code>
+      <code>$this-&gt;currentChar[$row][$charbd]</code>
+      <code>$this-&gt;currentChar[$row][$charbd]</code>
+      <code>$this-&gt;currentChar[$row][$k]</code>
+      <code>$this-&gt;currentChar[0]</code>
+      <code>$this-&gt;outputLine[$row][$k]</code>
+      <code>$this-&gt;outputLine[$row][$linebd]</code>
+      <code>$this-&gt;outputLine[$row][$linebd]</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="2">
+      <code>$tempLine[$position]</code>
+      <code>$this-&gt;outputLine[$row][$position]</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="2">
+      <code>$this-&gt;charList[$uniCode]</code>
+      <code>$this-&gt;inCharLine[$lastSpace + 1 + $i]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="11">
+      <code>$lastLength</code>
+      <code>$lastPart[$i]</code>
+      <code>$leftChar</code>
+      <code>$leftChar</code>
+      <code>$leftChar</code>
+      <code>$rightChar</code>
+      <code>$rightChar</code>
+      <code>$tempLine</code>
+      <code>$this-&gt;currentChar</code>
+      <code>$uniCode</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="5">
+      <code>$lastSpace</code>
+      <code>$lastSpace</code>
+      <code>$tempLine</code>
+      <code>$this-&gt;inCharLineLength - $lastSpace</code>
+      <code>$this-&gt;outputLine[$row]</code>
+    </MixedOperand>
+    <MixedStringOffsetAssignment occurrences="1">
+      <code>$lastPart[$i]</code>
+    </MixedStringOffsetAssignment>
+    <ParadoxicalCondition occurrences="2">
+      <code>$leftChar === ' '</code>
+      <code>$rightChar === ' '</code>
+    </ParadoxicalCondition>
+    <PossiblyFalseArgument occurrences="8">
+      <code>$char</code>
+      <code>$char</code>
+      <code>$char</code>
+      <code>$char</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;outputLine[0]</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="3">
+      <code>$smush</code>
+      <code>$this-&gt;maxLength</code>
+      <code>$this-&gt;rightToLeft</code>
+    </PossiblyInvalidOperand>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="10">
+      <code>$rightToLeft</code>
+      <code>$this-&gt;charHeight</code>
+      <code>$this-&gt;fontSmush</code>
+      <code>$this-&gt;hardBlank</code>
+      <code>$this-&gt;maxLength</code>
+      <code>$this-&gt;maxLength += 100</code>
+      <code>($smush &amp; 31) | self::SM_SMUSH</code>
+      <code>2 * $this-&gt;rightToLeft</code>
+      <code>max(1, $this-&gt;charHeight)</code>
+      <code>max(1, $this-&gt;maxLength)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullArgument occurrences="5">
+      <code>$leftChar</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$row]</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="3">
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$i]</code>
+      <code>$this-&gt;currentChar[$row]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullOperand occurrences="3">
+      <code>$smush</code>
+      <code>$this-&gt;maxLength</code>
+      <code>$this-&gt;rightToLeft</code>
+    </PossiblyNullOperand>
+    <PossiblyUndefinedVariable occurrences="2">
+      <code>$lastSpace</code>
+      <code>$lastSpace</code>
+    </PossiblyUndefinedVariable>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$charHeight</code>
+      <code>$hardBlank</code>
+      <code>$inCharLine</code>
+      <code>$maxLength</code>
+      <code>$output</code>
+      <code>$outputLine</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCastGivenDocblockType occurrences="5">
+      <code>(bool) $handleParagraphs</code>
+      <code>(int) $justification</code>
+      <code>(int) $outputWidth</code>
+      <code>(int) $rightToLeft</code>
+      <code>(int) $smushMode</code>
+    </RedundantCastGivenDocblockType>
+    <RedundantCondition occurrences="1">
+      <code>$uniCode !== '0'</code>
+    </RedundantCondition>
+    <UnevaluatedCode occurrences="2">
+      <code>$maxSmush = min($amount, $maxSmush);</code>
+    </UnevaluatedCode>
+    <UnusedVariable occurrences="2">
+      <code>$amount</code>
+      <code>$amount</code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Table/Column.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>is_int($colSpan) === false</code>
+      <code>is_int($columnWidth) === false</code>
+      <code>is_string($content) === false</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="1">
+      <code>$padMode</code>
+    </MixedArgument>
+    <PossiblyFalsePropertyAssignmentValue occurrences="1">
+      <code>$content</code>
+    </PossiblyFalsePropertyAssignmentValue>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$padMode</code>
+    </PossiblyUndefinedVariable>
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>is_int($colSpan)</code>
+      <code>is_int($columnWidth)</code>
+      <code>is_string($content)</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Table/Decorator/Unicode.php">
+    <FalsableReturnStatement occurrences="11">
+      <code>$this-&gt;_uniChar(0x2500)</code>
+      <code>$this-&gt;_uniChar(0x2502)</code>
+      <code>$this-&gt;_uniChar(0x250C)</code>
+      <code>$this-&gt;_uniChar(0x2510)</code>
+      <code>$this-&gt;_uniChar(0x2514)</code>
+      <code>$this-&gt;_uniChar(0x2518)</code>
+      <code>$this-&gt;_uniChar(0x251C)</code>
+      <code>$this-&gt;_uniChar(0x2524)</code>
+      <code>$this-&gt;_uniChar(0x252C)</code>
+      <code>$this-&gt;_uniChar(0x2534)</code>
+      <code>$this-&gt;_uniChar(0x253C)</code>
+    </FalsableReturnStatement>
+    <InvalidFalsableReturnType occurrences="11">
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+      <code>string</code>
+    </InvalidFalsableReturnType>
+  </file>
+  <file src="src/Table/DecoratorManager.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$aliases</code>
+    </NonInvariantDocblockPropertyType>
+  </file>
+  <file src="src/Table/Row.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;columnWidths</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>int</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="6">
+      <code>$colNum</code>
+      <code>$colNum</code>
+      <code>$colSpan</code>
+      <code>$column-&gt;render($columnWidth, $padding)</code>
+      <code>$remainingWidth</code>
+      <code>$this-&gt;columnWidths[$index]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="5">
+      <code>$colNum</code>
+      <code>$colSpan</code>
+      <code>$column</code>
+      <code>$columnWidth</code>
+      <code>$remainingWidth</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>Column|null</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="2">
+      <code>getColSpan</code>
+      <code>render</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="5">
+      <code>$colNum</code>
+      <code>$colSpan</code>
+      <code>$colSpan</code>
+      <code>$colSpan</code>
+      <code>count($columnWidths) - $colNum</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;columns[$index]</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/Table/Table.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>DecoratorManager</code>
+    </InvalidNullableReturnType>
+    <InvalidOperand occurrences="1">
+      <code>$rowNum</code>
+    </InvalidOperand>
+    <MissingReturnType occurrences="2">
+      <code>setInputCharset</code>
+      <code>setOutputCharset</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="6">
+      <code>$align</code>
+      <code>$columnData</code>
+      <code>$columnWidth</code>
+      <code>$columnWidth</code>
+      <code>$columnWidth</code>
+      <code>$columnWidths</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$key</code>
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="2">
+      <code>$columnWidths[$currentLowerColumn]</code>
+      <code>$lastColumnWidths[$currentUpperColumn]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="19">
+      <code>$align</code>
+      <code>$columnData</code>
+      <code>$columnNum</code>
+      <code>$columnNum</code>
+      <code>$columnNum</code>
+      <code>$columnWidth</code>
+      <code>$columnWidth</code>
+      <code>$columnWidth</code>
+      <code>$columnWidths</code>
+      <code>$currentLowerWidth</code>
+      <code>$currentLowerWidth</code>
+      <code>$currentUpperWidth</code>
+      <code>$currentUpperWidth</code>
+      <code>$decorator</code>
+      <code>$lastColumnWidths</code>
+      <code>$renderedRow</code>
+      <code>$row</code>
+      <code>$this-&gt;decorator</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>getColumnWidths</code>
+      <code>render</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="8">
+      <code>$columnNum</code>
+      <code>$columnNum</code>
+      <code>$columnNum</code>
+      <code>$columnWidth</code>
+      <code>$columnWidth</code>
+      <code>$currentLowerWidth</code>
+      <code>$currentUpperWidth</code>
+      <code>$renderedRow</code>
+    </MixedOperand>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;decoratorManager</code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;columnWidths</code>
+      <code>$this-&gt;columnWidths</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;columnWidths</code>
+    </PossiblyNullIterator>
+    <PossiblyNullReference occurrences="1">
+      <code>getHorizontal</code>
+    </PossiblyNullReference>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$lastColumnWidths</code>
+    </PossiblyUndefinedVariable>
+    <RedundantCastGivenDocblockType occurrences="2">
+      <code>(int) $autoSeparate</code>
+      <code>(int) $padding</code>
+    </RedundantCastGivenDocblockType>
+  </file>
+  <file src="test/FigletTest.php">
+    <InvalidArgument occurrences="1">
+      <code>1</code>
+    </InvalidArgument>
+    <MissingParamType occurrences="2">
+      <code>$file</code>
+      <code>$output</code>
+    </MissingParamType>
+    <MissingReturnType occurrences="29">
+      <code>_equalAgainstFile</code>
+      <code>testArrayAccessConfig</code>
+      <code>testCharWrapLeftToRight</code>
+      <code>testCharWrapRightToLeft</code>
+      <code>testCorrectEncodingISO885915</code>
+      <code>testCorrectEncodingUTF8</code>
+      <code>testEmptyString</code>
+      <code>testGzippedFont</code>
+      <code>testIncorrectEncoding</code>
+      <code>testInvalidFont</code>
+      <code>testNonExistentFont</code>
+      <code>testOutputWidth</code>
+      <code>testParagraphOff</code>
+      <code>testParagraphOn</code>
+      <code>testSmushModeDefault</code>
+      <code>testSmushModeForced</code>
+      <code>testSmushModeInvalid</code>
+      <code>testSmushModeRemoved</code>
+      <code>testSmushModeRemovedRightToLeft</code>
+      <code>testSmushModeTooSmall</code>
+      <code>testStandardAlignCenter</code>
+      <code>testStandardAlignLeft</code>
+      <code>testStandardAlignRight</code>
+      <code>testStandardRightToLeftAlignCenter</code>
+      <code>testStandardRightToLeftAlignLeft</code>
+      <code>testStandardRightToLeftAlignRight</code>
+      <code>testWordWrapLeftToRight</code>
+      <code>testWordWrapRightToLeft</code>
+      <code>testWrongParameter</code>
+    </MissingReturnType>
+    <MixedOperand occurrences="1">
+      <code>$file</code>
+    </MixedOperand>
+    <UnusedVariable occurrences="2">
+      <code>$figlet</code>
+      <code>$figlet</code>
+    </UnusedVariable>
+  </file>
+  <file src="test/MultiByteTest.php">
+    <DeprecatedMethod occurrences="2">
+      <code>Text\MultiByte::strPad('äääöö', 2, 'ö')</code>
+      <code>Text\MultiByte::wordWrap('äbüöcß', 2, ' ', true)</code>
+    </DeprecatedMethod>
+    <MissingReturnType occurrences="2">
+      <code>testStrPadTriggersDeprecatedError</code>
+      <code>testWordWrapTriggersDeprecatedError</code>
+    </MissingReturnType>
+    <UnusedVariable occurrences="2">
+      <code>$line</code>
+      <code>$text</code>
+    </UnusedVariable>
+  </file>
+  <file src="test/TableTest.php">
+    <InvalidArgument occurrences="2">
+      <code>1</code>
+      <code>false</code>
+    </InvalidArgument>
+    <MissingReturnType occurrences="37">
+      <code>testColumnAlignCenter</code>
+      <code>testColumnAlignLeft</code>
+      <code>testColumnAlignRight</code>
+      <code>testColumnDefaultInputEncoding</code>
+      <code>testColumnDefaultOutputEncoding</code>
+      <code>testColumnForcedEncoding</code>
+      <code>testColumnPadding</code>
+      <code>testColumnRenderInvalidArgument</code>
+      <code>testColumnSetAlignInvalidArgument</code>
+      <code>testColumnSetColSpanInvalidArgument</code>
+      <code>testColumnSetContentInvalidArgument</code>
+      <code>testColumnUnicodeWordwrap</code>
+      <code>testColumnWordwrap</code>
+      <code>testDecoratorAscii</code>
+      <code>testDecoratorBlank</code>
+      <code>testDecoratorUnicode</code>
+      <code>testDefaultColumnAlign</code>
+      <code>testRowAutoInsertColumns</code>
+      <code>testRowColumnsWithColSpan</code>
+      <code>testRowGetColumn</code>
+      <code>testRowGetColumnWidthsBeforeRendering</code>
+      <code>testRowGetColumns</code>
+      <code>testRowGetInvalidColumn</code>
+      <code>testRowMultiLine</code>
+      <code>testRowNotEnoughColumnWidths</code>
+      <code>testRowWithNoColumns</code>
+      <code>testTableColSpanWithMultipleRows</code>
+      <code>testTableComplex</code>
+      <code>testTableConstructInvalidColumnWidthsItem</code>
+      <code>testTableDecoratorEncodingDefault</code>
+      <code>testTableDecoratorLoaderAdvanced</code>
+      <code>testTableDecoratorLoaderSimple</code>
+      <code>testTableMagicToString</code>
+      <code>testTableSimpleRow</code>
+      <code>testTableWithoutRows</code>
+      <code>testUnicodeRowMultiLine</code>
+      <code>testUnicodeStringPadding</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$decorator</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="11">
+      <code>getBottomLeft</code>
+      <code>getBottomRight</code>
+      <code>getCross</code>
+      <code>getHorizontal</code>
+      <code>getHorizontalDown</code>
+      <code>getHorizontalUp</code>
+      <code>getTopLeft</code>
+      <code>getTopRight</code>
+      <code>getVertical</code>
+      <code>getVerticalLeft</code>
+      <code>getVerticalRight</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="10">
+      <code>$decorator-&gt;getBottomLeft()</code>
+      <code>$decorator-&gt;getCross()</code>
+      <code>$decorator-&gt;getHorizontal()</code>
+      <code>$decorator-&gt;getHorizontalDown()</code>
+      <code>$decorator-&gt;getHorizontalUp()</code>
+      <code>$decorator-&gt;getTopLeft()</code>
+      <code>$decorator-&gt;getTopRight()</code>
+      <code>$decorator-&gt;getVertical()</code>
+      <code>$decorator-&gt;getVerticalLeft()</code>
+      <code>$decorator-&gt;getVerticalRight()</code>
+    </MixedOperand>
+    <UnusedVariable occurrences="4">
+      <code>$column</code>
+      <code>$column</code>
+      <code>$column</code>
+      <code>$table</code>
+    </UnusedVariable>
+  </file>
+</files>

@@ -1,14 +1,21 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-text for the canonical source repository
- * @copyright https://github.com/laminas/laminas-text/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-text/blob/master/LICENSE.md New BSD License
- */
-
 namespace Laminas\Text\Table;
 
 use Laminas\Stdlib\StringUtils;
+
+use function explode;
+use function implode;
+use function in_array;
+use function is_int;
+use function is_string;
+use function str_repeat;
+use function strtolower;
+
+use const PHP_OS;
+use const STR_PAD_BOTH;
+use const STR_PAD_LEFT;
+use const STR_PAD_RIGHT;
 
 /**
  * Column class for Laminas\Text\Table\Row
@@ -18,9 +25,9 @@ class Column
     /**
      * Aligns for columns
      */
-    const ALIGN_LEFT   = 'left';
-    const ALIGN_CENTER = 'center';
-    const ALIGN_RIGHT  = 'right';
+    public const ALIGN_LEFT   = 'left';
+    public const ALIGN_CENTER = 'center';
+    public const ALIGN_RIGHT  = 'right';
 
     /**
      * Content of the column
@@ -82,7 +89,7 @@ class Column
      *
      * @param  string $content  Content of the column
      * @param  string $charset  The charset of the content
-     * @throws Exception\InvalidArgumentException When $content is not a string
+     * @throws Exception\InvalidArgumentException When $content is not a string.
      * @return Column
      */
     public function setContent($content, $charset = null)
@@ -103,7 +110,7 @@ class Column
             if (PHP_OS !== 'AIX') {
                 // AIX does not understand these character sets
                 $strWrapper = StringUtils::getWrapper($inputCharset, $outputCharset);
-                $content = $strWrapper->convert($content);
+                $content    = $strWrapper->convert($content);
             }
         }
 
@@ -116,7 +123,7 @@ class Column
      * Set the align
      *
      * @param  string $align Align of the column
-     * @throws Exception\OutOfBoundsException When supplied align is invalid
+     * @throws Exception\OutOfBoundsException When supplied align is invalid.
      * @return Column
      */
     public function setAlign($align)
@@ -134,12 +141,12 @@ class Column
      * Set the colspan
      *
      * @param  int $colSpan
-     * @throws Exception\InvalidArgumentException When $colSpan is smaller than 1
+     * @throws Exception\InvalidArgumentException When $colSpan is smaller than 1.
      * @return Column
      */
     public function setColSpan($colSpan)
     {
-        if (is_int($colSpan) === false or $colSpan < 1) {
+        if (is_int($colSpan) === false || $colSpan < 1) {
             throw new Exception\InvalidArgumentException('$colSpan must be an integer and greater than 0');
         }
 
@@ -163,17 +170,17 @@ class Column
      *
      * @param  int $columnWidth The width of the column
      * @param  int $padding     The padding for the column
-     * @throws Exception\InvalidArgumentException When $columnWidth is lower than 1
-     * @throws Exception\OutOfBoundsException When padding is greater than columnWidth
+     * @throws Exception\InvalidArgumentException When $columnWidth is lower than 1.
+     * @throws Exception\OutOfBoundsException When padding is greater than columnWidth.
      * @return string
      */
     public function render($columnWidth, $padding = 0)
     {
-        if (is_int($columnWidth) === false or $columnWidth < 1) {
+        if (is_int($columnWidth) === false || $columnWidth < 1) {
             throw new Exception\InvalidArgumentException('$columnWidth must be an integer and greater than 0');
         }
 
-        $columnWidth -= ($padding * 2);
+        $columnWidth -= $padding * 2;
 
         if ($columnWidth < 1) {
             throw new Exception\OutOfBoundsException('Padding (' . $padding . ') is greater than column width');
@@ -208,8 +215,6 @@ class Column
                            . str_repeat(' ', $padding);
         }
 
-        $result = implode("\n", $paddedLines);
-
-        return $result;
+        return implode("\n", $paddedLines);
     }
 }
