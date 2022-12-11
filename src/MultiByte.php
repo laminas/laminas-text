@@ -17,6 +17,8 @@ use const STR_PAD_RIGHT;
 class MultiByte
 {
     /**
+     * @deprecated Please use {@see \Laminas\Stdlib\StringUtils} instead
+     *
      * @param  string  $string string
      * @param  int     $width
      * @param  string  $break
@@ -24,7 +26,6 @@ class MultiByte
      * @param  string  $charset
      * @throws Exception\InvalidArgumentException
      * @return string
-     * @deprecated Please use {@see \Laminas\Stdlib\StringUtils} instead
      */
     public static function wordWrap($string, $width = 75, $break = "\n", $cut = false, $charset = 'utf-8')
     {
@@ -43,13 +44,14 @@ class MultiByte
     /**
      * String padding
      *
+     * @deprecated Please use {@see \Laminas\Stdlib\StringUtils} instead
+     *
      * @param  string  $input
      * @param  int $padLength
      * @param  string  $padString
      * @param  int $padType
      * @param  string  $charset
      * @return string
-     * @deprecated Please use {@see \Laminas\Stdlib\StringUtils} instead
      */
     public static function strPad($input, $padLength, $padString = ' ', $padType = STR_PAD_RIGHT, $charset = 'utf-8')
     {

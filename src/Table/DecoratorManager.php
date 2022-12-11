@@ -16,9 +16,8 @@ use function sprintf;
  * Enforces that decorators retrieved are instances of
  * Decorator\DecoratorInterface. Additionally, it registers a number of default
  * decorators.
- * 
+ *
  * @psalm-import-type FactoriesConfigurationType from ConfigInterface
- * 
  * @template-extends AbstractPluginManager<Decorator\DecoratorInterface>
  */
 class DecoratorManager extends AbstractPluginManager
@@ -82,7 +81,6 @@ class DecoratorManager extends AbstractPluginManager
      *
      * Checks that the decorator loaded is an instance of Decorator\DecoratorInterface.
      *
-     * @param  mixed $plugin
      * @return void
      * @throws Exception\InvalidDecoratorException
      */
