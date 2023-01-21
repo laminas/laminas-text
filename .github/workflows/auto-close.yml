@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Autoclose new issues and PRs
-      uses: roots/issue-closer@v1.1
+      uses: roots/issue-closer@v1.2
       with:
         repo-token: ${{ secrets.ORGANIZATION_ADMIN_TOKEN }}
         issue-pattern: "^exact-string-will-never-match$"
