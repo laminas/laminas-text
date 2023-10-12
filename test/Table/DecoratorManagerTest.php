@@ -15,7 +15,7 @@ class DecoratorManagerTest extends TestCase
 {
     use CommonPluginManagerTrait;
 
-    protected function getPluginManager(): DecoratorManager
+    protected static function getPluginManager(): DecoratorManager
     {
         return new DecoratorManager(new ServiceManager());
     }
