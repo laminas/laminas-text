@@ -499,6 +499,7 @@ class Table
     /**
      * Magic method which returns the rendered table
      *
+     * @psalm-suppress MethodSignatureMustProvideReturnType
      * @return string
      */
     public function __toString()
