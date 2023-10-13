@@ -833,7 +833,7 @@ class Figlet
                 $amount++;
             } elseif (! empty($rightChar)) {
                 /**
-                 * @psalm-suppress RedundantConditionGivenDocblockType Avoid behavior BC break
+                 * @psalm-suppress RedundantConditionGivenDocblockType
                  * @psalm-suppress MixedArgument
                  */
                 if ($this->_smushem($leftChar, $rightChar) !== null) {
