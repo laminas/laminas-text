@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @group      Laminas_Text
- * @psalm-suppress DeprecatedMethod
  */
 class MultiByteTest extends TestCase
 {

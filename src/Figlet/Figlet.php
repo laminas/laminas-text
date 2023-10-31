@@ -832,10 +832,6 @@ class Figlet
             if (empty($leftChar) || $leftChar === ' ') {
                 $amount++;
             } elseif (! empty($rightChar)) {
-                /**
-                 * @psalm-suppress RedundantConditionGivenDocblockType
-                 * @psalm-suppress MixedArgument
-                 */
                 if ($this->_smushem($leftChar, $rightChar) !== null) {
                     $amount++;
                 }

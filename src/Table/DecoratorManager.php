@@ -46,10 +46,7 @@ class DecoratorManager extends AbstractPluginManager
         'zendtexttabledecoratorunicode' => Decorator\Unicode::class,
     ];
 
-    /**
-     * @var FactoriesConfigurationType
-     * @psalm-suppress NonInvariantDocblockPropertyType
-     */
+    /** @var FactoriesConfigurationType */
     protected $factories = [
         Decorator\Ascii::class             => InvokableFactory::class,
         Decorator\Unicode::class           => InvokableFactory::class,
