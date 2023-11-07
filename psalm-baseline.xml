@@ -46,7 +46,7 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>$this-&gt;charList</code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument occurrences="16">
+    <MixedArgument occurrences="18">
       <code>$firstPart[$i]</code>
       <code>$lastPart[$i]</code>
       <code>$leftChar</code>
@@ -63,6 +63,7 @@
       <code>$this-&gt;outputLine[$row]</code>
       <code>$this-&gt;outputLine[$row][$k]</code>
       <code>$this-&gt;outputLine[0]</code>
+      <code>$rightChar</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="3">
       <code>$char</code>
@@ -190,6 +191,9 @@
       <code>$amount</code>
       <code>$amount</code>
     </UnusedVariable>
+  <RedundantConditionGivenDocblockType occurrences="2">
+    <code>$this->_smushem($leftChar, $rightChar)</code>
+  </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Table/Column.php">
     <DocblockTypeContradiction occurrences="3">
@@ -241,8 +245,9 @@
     </InvalidFalsableReturnType>
   </file>
   <file src="src/Table/DecoratorManager.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
+    <NonInvariantDocblockPropertyType occurrences="2">
       <code>$aliases</code>
+      <code>$factories</code>
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="src/Table/Row.php">
@@ -367,6 +372,9 @@
       <code>(int) $autoSeparate</code>
       <code>(int) $padding</code>
     </RedundantCastGivenDocblockType>
+    <MethodSignatureMustProvideReturnType occurence="1">
+      <code>__toString</code>
+    </MethodSignatureMustProvideReturnType>
   </file>
   <file src="test/FigletTest.php">
     <InvalidArgument occurrences="1">
@@ -416,7 +424,7 @@
     </UnusedVariable>
   </file>
   <file src="test/MultiByteTest.php">
-    <DeprecatedMethod occurrences="2">
+    <DeprecatedMethod occurrences="4">
       <code>Text\MultiByte::strPad('äääöö', 2, 'ö')</code>
       <code>Text\MultiByte::wordWrap('äbüöcß', 2, ' ', true)</code>
     </DeprecatedMethod>
