@@ -5,11 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Create FIGlets and text-based tables">  
+    <meta name="description" content="Create FIGlets and text-based tables"> 
+
+    
+    
+    <meta name="docsearch:version" content="latest">
+    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:component" content="laminas-text (Abandoned)">
+
     <link rel="canonical" href="https://docs.laminas.dev/laminas-text/table/">
     <link rel="shortcut icon" href="https://docs.laminas.dev/img/trademark-laminas-foundation-rgb.svg">
 
-    <title>Tables - laminas-text - Laminas Docs</title>
+    <title>Tables - laminas-text (Abandoned) - Laminas Docs</title>
 
     <link rel="stylesheet" href="https://docs.laminas.dev/css/styles.css">
     
@@ -75,17 +82,6 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="https://api-tools.getlaminas.org/documentation" class="dropdown-item">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4 col-sm-12">
-                                        <img src="https://docs.laminas.dev/img/laminas-api-tools-rgb.svg">
-                                    </div>
-                                    <div class="col-md-8 col-sm-12">
-                                        <strong>API Tools</strong><br>
-                                        Build RESTful APIs in Minutes
-                                    </div>
-                                </div>
-                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item dropdown-item--secondardy" href="https://docs.laminas.dev/migration/">
                                 <div class="row align-items-center">
@@ -115,7 +111,16 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-text</a>
+            <a href="..">
+                
+                
+    laminas-text 
+
+    
+        <span class="badge badge-warning">abandoned</span>
+    
+
+            </a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -182,7 +187,16 @@
                     Components
 
                     
-                        <small class="header__subtitle">laminas-text</small>
+                        <small class="header__subtitle">
+                            
+                            
+    laminas-text 
+
+    
+        <span class="badge badge-warning">abandoned</span>
+    
+
+                        </small>
                     
                 </h1>
             </div>
@@ -195,8 +209,8 @@
                     <a href="#" class="header__link header__link--search" data-toggle="modal" data-target="#mkdocs_search_modal" title="Open search">
                         <i class="fa fa-search"></i> Search
                     </a>
-                    <a href="https://github.com/laminas/laminas-text/" class="header__link header__link--github" title="Go to repository of laminas-text">
-                        <i class="fa fa-github"></i> GitHub
+                    <a href="https://github.com/laminas/laminas-text" class="header__link header__link--github" title="Go to repository of laminas-text (Abandoned)">
+                        <i class="fab fa-github"></i> GitHub
                     </a>
                 
             </div>
@@ -237,7 +251,15 @@
             <li class="breadcrumb-item"><a href="https://docs.laminas.dev/components/">Components</a></li>
 
             
-                <li class="breadcrumb-item"><a href="..">laminas-text</a></li>
+                <li class="breadcrumb-item">
+                    <a href="..">
+                        
+    laminas-text 
+
+    
+
+                    </a>
+                </li>
 
                 
 
@@ -285,12 +307,14 @@ When creating a table, you can supply an array with options for the table.</p>
   columns. The default padding is zero.</li>
 <li><code>AutoSeparate</code>: How the rows are separated with horizontal lines; the default
   is to separate all rows. This is defined as a bitmask containing one ore more
-  of the following <code>Laminas\Text\Table</code> constants:</li>
+  of the following <code>Laminas\Text\Table</code> constants:<ul>
 <li><code>Laminas\Text\Table\Table::AUTO_SEPARATE_NONE</code></li>
 <li><code>Laminas\Text\Table\Table::AUTO_SEPARATE_HEADER</code></li>
 <li><code>Laminas\Text\Table\Table::AUTO_SEPARATE_FOOTER</code></li>
 <li><code>Laminas\Text\Table\Table::AUTO_SEPARATE_ALL</code>
   Where header is always the first row, and the footer is always the last row.</li>
+</ul>
+</li>
 </ul>
 <p>Rows are added to the table by creating a new instance of <code>Laminas\Text\Table\Row</code>
 and appending it to the table via the <code>appendRow()</code> method. Rows themselves have
@@ -356,7 +380,9 @@ echo $table;</code></pre>
         <li class="page-nav__item">
             
                 <a rel="prev" class="page-nav__link page-nav__link--prev" href="../figlet/">
-                    <i class="fa fa-chevron-left"></i> Previous
+                    <small class="page-nav__label">Previous</small>
+                    <i class="fa fa-chevron-left"></i>
+                    Figlets
                 </a>
             
         </li>
@@ -393,7 +419,16 @@ echo $table;</code></pre>
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">laminas-text</a>
+            <a href="..">
+                
+                
+    laminas-text 
+
+    
+        <span class="badge badge-warning">abandoned</span>
+    
+
+            </a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -455,7 +490,7 @@ echo $table;</code></pre>
                     <li>Laminas Project <a href="https://getlaminas.org/">The new foundation for the community-supported, open source continuation of Zend Framework</a></li>
                     <li>Laminas Components and MVC <a href="https://docs.laminas.dev/">Components and MVC for enterprise applications</a></li>
                     <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 middleware in minutes</a></li>
-                    <li>Laminas API Tools <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                    <li>Maintenance Overview <a href="https://getlaminas.org/packages-maintenance-status/">Current maintenance status of Laminas &amp; Mezzio packages</a></li>
                 </ul>
             </div>
         </div>
@@ -472,13 +507,13 @@ echo $table;</code></pre>
                                 <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
                             </li>
                             <li class="support__list-item">
-                                <a href="https://laminas.dev/chat" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                                <a href="https://laminas.dev/chat" class="support__link" title="Chat"><i class="fab fa-slack"></i></a>
                             </li>
                             <li class="support__list-item">
-                                <a href="https://github.com/laminas" class="support__link" title="Github"><i class="fa fa-github"></i></a>
+                                <a href="https://github.com/laminas" class="support__link" title="Github"><i class="fab fa-github"></i></a>
                             </li>
                             <li class="support__list-item">
-                                <a href="https://twitter.com/getlaminas" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://phpc.social/@getlaminas" class="support__link" title="Mastodon"><i class="fab fa-mastodon"></i></a>
                             </li>
                             <li class="support__list-item">
                                 <a href="https://getlaminas.org/blog/rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
@@ -494,7 +529,7 @@ echo $table;</code></pre>
                         <h4 class="footer__headline">License</h4>
                         <p>
                             Code licensed under <a
-                                href="https://github.com/laminas/laminas-text/blob/master/LICENSE.md">BSD 3-Clause</a>.
+                                href="https://github.com/laminas/laminas-text/blob/-/LICENSE.md">BSD 3-Clause</a>.
                         </p>
                     </div>
 
@@ -504,7 +539,7 @@ echo $table;</code></pre>
                         <p>
                             <!--Built with love by the Laminas team with the help of our
                             <a href="https://github.com/laminas/laminas-text/graphs/contributors">contributors</a>.<br>-->
-                            &copy; 2021 <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
+                            &copy; 2024 <a href="https://getlaminas.org/">Laminas Project</a> a Series of LF Projects, LLC.
                         </p>
                     </div>
                 </div>
@@ -516,7 +551,7 @@ echo $table;</code></pre>
     <script>
         let base_url = '..',
             project  = "components",
-            siteName = 'laminas-text';
+            siteName = 'laminas-text (Abandoned)';
     </script>
     <script src="https://docs.laminas.dev/js/scripts.js"></script>
     
@@ -537,7 +572,7 @@ echo $table;</code></pre>
             <div class="modal-body">
                 <form role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search in laminas-text" id="mkdocs-search-query">
+                        <input type="text" class="form-control" placeholder="Search in laminas-text (Abandoned)" id="mkdocs-search-query">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
